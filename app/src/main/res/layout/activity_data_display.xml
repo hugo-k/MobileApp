@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Data_display">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/imageViewPlastic"
+            android:layout_width="218dp"
+            android:layout_height="206dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/plastic" />
+
+        <TextView
+            android:id="@+id/textView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Plastic bin"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toTopOf="@+id/lineView01"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewPlastic" />
+
+        <View
+            android:id="@+id/lineView01"
+            android:layout_width="fill_parent"
+            android:layout_height="2dip"
+            android:layout_marginTop="80dp"
+            android:background="#7C7979"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewPlastic" />
+
+        <View
+            android:id="@+id/lineView02"
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="64dp"
+            android:background="#7C7979"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lineView01" />
+
+        <TextView
+            android:id="@+id/textView02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:text="#Location : .............."
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/lineView02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lineView01" />
+
+        <ImageView
+            android:id="@+id/imageViewLocation"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/lineView02"
+            app:layout_constraintEnd_toStartOf="@id/textView02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/lineView01"
+            app:srcCompat="@drawable/location" />
+
+        <TextView
+            android:id="@+id/textView03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:text="What you can sort"
+            style="@style/BoldText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lineView02" />
+
+        <TextView
+            android:id="@+id/textView04"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:text="Beverage cans of various volumes\nCanned food packaging\nCoffee and tea cans\nDurable food packaging\nPet food packaging,\nYoghurt and cottage cheese lids\nFoil\nFood trays\nFterilised food lids\nSmall metal packaging"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView05"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView03" />
+
+        <TextView
+            android:id="@+id/textView05"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:text="What you can't throw in"
+            style="@style/BoldText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView04" />
+
+        <TextView
+            android:id="@+id/textView06"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:text="food residue packaging\ndirty polystyrene food transfer trays\npackaging from chemicals and hazardous substances\nnew water pipes\nfloor coverings\nlarge pieces of polystyrene (belong in waste collection centres)."
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView05" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</RelativeLayout>
