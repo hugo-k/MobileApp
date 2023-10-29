@@ -1,7 +1,6 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MapsActivity">
@@ -9,34 +8,26 @@
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        map:layout_constraintBottom_toBottomOf="parent"
-        map:layout_constraintEnd_toEndOf="parent"
-        map:layout_constraintHorizontal_bias="0.0"
-        map:layout_constraintStart_toStartOf="parent"
-        map:layout_constraintTop_toTopOf="parent"
-        map:layout_constraintVertical_bias="0.0" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 
     <ImageButton
-        android:id="@+id/geolocalisation_button"
-        android:layout_width="83dp"
-        android:layout_height="61dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="212dp"
-        android:backgroundTint="#00FFFFFF"
-        android:contentDescription="Géolocalisation"
-        map:layout_constraintBottom_toBottomOf="parent"
-        map:layout_constraintEnd_toEndOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/infoContainer"
-        android:layout_width="match_parent"
+        android:id="@+id/requestPermissionLocation"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:orientation="horizontal"
-        map:layout_constraintBottom_toBottomOf="@+id/map"
-        map:layout_constraintEnd_toEndOf="parent"
-        map:layout_constraintStart_toStartOf="parent"></LinearLayout>
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="38dp"
+        android:background="@drawable/baseline_gps_fixed_24"
+        />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/goToDataDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+
+</RelativeLayout>

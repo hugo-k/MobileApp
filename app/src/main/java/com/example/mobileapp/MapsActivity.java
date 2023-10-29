@@ -1,48 +1,34 @@
 package com.example.mobileapp;
 
-import static android.app.PendingIntent.getActivity;
-
-import android.app.Fragment;
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
-import android.Manifest.permission;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
-import android.location.Location;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.ImageButton;
-import android.widget.TextView;
-
-public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
-    private GoogleMap mMap;
-    private FusedLocationProviderClient fusedLocationClient;
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
+    private GoogleMap mMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,13 +38,19 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-
-        ImageButton geolocalisationButton = findViewById(R.id.geolocalisation_button);
-        geolocalisationButton.setOnClickListener(new View.OnClickListener() {
+        ImageButton requestPermissionLocation = findViewById(R.id.requestPermissionLocation);
+        requestPermissionLocation.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 requestLocationPermission();
+            }
+        });
+
+        Button goToDataDisplayActivity = findViewById(R.id.goToDataDisplay);
+        goToDataDisplayActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // LL : Put link to activity here
             }
         });
     }
@@ -66,72 +58,50 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
-        if (ActivityCompat.checkSelfPermission(this, permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            return;
-        }
-        mMap.setMyLocationEnabled(true);
-
-        if (mMap != null) {
-            LatLng markerPosition = new LatLng(49.1951 , 16.6068 );
-
-
-            MarkerOptions markerOptions = new MarkerOptions()
-                    .position(markerPosition) // Position du marqueur
-                    .title("Marker 1") // Titre du marqueur (optionnel)
-                    .snippet("Description"); // Description du marqueur (optionnel)
-
-            mMap.addMarker(markerOptions);
-            mMap.setOnMarkerClickListener(this);
-        }
     }
 
-    @Override
-    public boolean onMarkerClick(@NonNull Marker marker) {
-        InfoFragment infoFragment = new InfoFragment();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.infoContainer, infoFragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
+    private void getMyLocation() {
+        FusedLocationProviderClient fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
-        if (infoFragment != null) {
-            // Update postal address in the TextView fragment
-            String postalAddress = "123 Main Street\nCity, State 12345\nCountry";
-            infoFragment.updatePostalAddress(postalAddress);
-        }
-
-        return true;
-    }
-
-    private void requestLocationPermission() {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            // Localisation permission accepted
-            // Get last known position
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            requestLocationPermission();
+        } else {
             fusedLocationClient.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
                 @Override
                 public void onSuccess(Location location) {
                     if (location != null) {
-                        // Display localisation on map
-                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 15));
+                        LatLng currentLocation = new LatLng(location.getLatitude(), location.getLongitude());
+                        CameraUpdate locationUpdate = CameraUpdateFactory.newLatLngZoom(currentLocation, 17); // Ajustez la valeur du zoom (15 est un exemple)
+                        mMap.animateCamera(locationUpdate);
+                    } else {
+                        Toast.makeText(MapsActivity.this, "Impossible to find location", Toast.LENGTH_LONG).show();
                     }
                 }
             });
-        } else {
-            // Ask authorisation to the user
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
         }
     }
 
+    private void requestLocationPermission() {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
+            Toast.makeText(this, "Location permission is required for this app.", Toast.LENGTH_LONG).show();
+        }
+        // Demander la permission
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
+    }
+
+    @SuppressLint("MissingPermission")
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Autorisation ok
-                requestLocationPermission();
+                mMap.getUiSettings().setCompassEnabled(true);
+                mMap.setMyLocationEnabled(true);
+                mMap.getUiSettings().setMyLocationButtonEnabled(false);
+                getMyLocation();
             } else {
+                Toast.makeText(this, "Location permission denied. You can enable it in the app settings.", Toast.LENGTH_LONG).show();
             }
         }
     }
