@@ -1,1 +1,6 @@
-/build
+#Gradle files
+.gladle/
+build/
+
+#Local configuration
+local.properties
