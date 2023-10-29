@@ -13,7 +13,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -23,9 +22,8 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.badge.BadgeUtils;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -45,6 +43,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onClick(View view) {
                 requestLocationPermission();
+            }
+        });
+
+        Button goToDataDisplayActivity = findViewById(R.id.goToDataDisplay);
+        goToDataDisplayActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // LL : Put link to activity here
             }
         });
     }
