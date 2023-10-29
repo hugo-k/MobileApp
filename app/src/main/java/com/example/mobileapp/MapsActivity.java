@@ -2,6 +2,7 @@ package com.example.mobileapp;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
@@ -50,7 +51,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         goToDataDisplayActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // LL : Put link to activity here
+                startActivity(new Intent(MapsActivity.this, Data_display.class));
             }
         });
     }
