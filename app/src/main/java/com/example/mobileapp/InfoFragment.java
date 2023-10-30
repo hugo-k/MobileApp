@@ -20,7 +20,8 @@ public class InfoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_info, container, false);
 
-        TextView addressTextView = view.findViewById(R.id.addressTextView);
+        //TextView addressTextView = view.findViewById(R.id.addressTextView);
+        //addressTextView.setText("Rue\nVille\n94600");
 
         return view;
     }

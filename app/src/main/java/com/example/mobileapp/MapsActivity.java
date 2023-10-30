@@ -50,7 +50,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         goToDataDisplayActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // LL : Put link to activity here
+                InfoFragment infoFragment = new InfoFragment();
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragmentContainer, infoFragment)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
     }
