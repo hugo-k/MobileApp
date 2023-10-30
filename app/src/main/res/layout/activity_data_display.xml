@@ -16,7 +16,7 @@
 
 
         <ImageView
-            android:id="@+id/imageViewPlastic"
+            android:id="@+id/imageViewCategory"
             android:layout_width="218dp"
             android:layout_height="206dp"
             android:layout_marginTop="24dp"
@@ -34,7 +34,7 @@
             app:layout_constraintBottom_toTopOf="@+id/lineView01"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageViewPlastic" />
+            app:layout_constraintTop_toBottomOf="@+id/imageViewCategory" />
 
         <View
             android:id="@+id/lineView01"
@@ -44,7 +44,7 @@
             android:background="#7C7979"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageViewPlastic" />
+            app:layout_constraintTop_toBottomOf="@+id/imageViewCategory" />
 
         <View
             android:id="@+id/lineView02"
