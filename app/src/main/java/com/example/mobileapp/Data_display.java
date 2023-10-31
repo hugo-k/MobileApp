@@ -2,11 +2,7 @@ package com.example.mobileapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
-import android.location.Address;
 import android.os.Bundle;
-import android.content.Context;
-import android.content.res.Resources;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -16,8 +12,6 @@ import android.widget.TextView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.InputStream;
 
 public class Data_display extends AppCompatActivity {
 
@@ -63,7 +57,20 @@ public class Data_display extends AppCompatActivity {
                         binCategory = "Plastic";
                         break;
                     case "Papír":
+                        imageCategory.setImageResource(R.drawable.paper);
+                        binCategory = "Paper";
+                        break;
+                    case "Biologický odpad":
                         imageCategory.setImageResource(R.drawable.organic);
+                        binCategory = "Organic";
+                        break;
+                    case "Sklo barevné":
+                        imageCategory.setImageResource(R.drawable.coloredglass);
+                        binCategory = "Colored glasses";
+                        break;
+                    case "Sklo bílé":
+                        imageCategory.setImageResource(R.drawable.whiteglass);
+                        binCategory = "White glasses";
                         break;
                     default:
                         binCategory = "Nothing";
