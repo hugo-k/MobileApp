@@ -2,6 +2,7 @@ package com.example.mobileapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -83,6 +84,15 @@ public class Data_display extends AppCompatActivity {
         } catch (JSONException e) {
             Log.d("tag", "error : " + e);
             throw new RuntimeException(e);
+        }
+
+        Bundle extras = getIntent().getExtras();
+        if(extras != null){
+            String addressFromActivity = extras.getString("address");
+            Log.d("GetAd", "act2 : " + addressFromActivity);
+
+            TextView textViewLocation = findViewById(R.id.textView02);
+            textViewLocation.setText(addressFromActivity);
         }
 
     }

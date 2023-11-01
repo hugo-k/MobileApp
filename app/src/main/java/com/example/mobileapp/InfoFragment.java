@@ -27,10 +27,18 @@ public class InfoFragment extends Fragment {
         addressTextView = view.findViewById(R.id.txtAddress);
 
         Button openInformations = view.findViewById(R.id.btnDirection);
+
         openInformations.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), Data_display.class));
+
+                String addressFromActivity = getArguments().getString("address");
+                Log.d("GetAddress", "address from act :" + addressFromActivity);
+
+                Intent i = new Intent(getActivity(), Data_display.class);
+                i.putExtra("address", addressFromActivity);
+                Log.d("GetAd", "frag : " + addressFromActivity);
+                startActivity(i);
             }
         });
 

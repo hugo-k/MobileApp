@@ -80,6 +80,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap.animateCamera(cameraUpdate);
 
         if (infoFragment != null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("address", addressText);
+            Log.d("GetAd", "act1 : " + addressText);
+            infoFragment.setArguments(bundle);
+
             infoFragment.updatePostalAddress(addressText);
         }
 
