@@ -129,7 +129,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
             Toast.makeText(this, "Location permission is required for this app.", Toast.LENGTH_LONG).show();
         }
-        // Demander la permission
+        // Ask for localisation permission
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
     }
 
