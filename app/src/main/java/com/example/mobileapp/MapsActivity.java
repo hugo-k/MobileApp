@@ -61,19 +61,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 requestLocationPermission();
             }
         });
-
-        Button goToDataDisplayActivity = findViewById(R.id.goToDataDisplay);
-        goToDataDisplayActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MapsActivity.this, Data_display.class));
-                InfoFragment infoFragment = new InfoFragment();
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragmentContainer, infoFragment)
-                        .addToBackStack(null)
-                        .commit();
-            }
-        });
     }
 
     @Override
@@ -88,18 +75,18 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public boolean onMarkerClick(Marker marker) {
         LatLng markerPosition = marker.getPosition();
         Address address = getAddress(markerPosition.latitude, markerPosition.longitude);
+        String addressText = getAddressText(address);
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(markerPosition, 20);
         mMap.animateCamera(cameraUpdate);
+
+        if (infoFragment != null) {
+            infoFragment.updatePostalAddress(addressText);
+        }
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragmentContainer, infoFragment)
                 .addToBackStack(null)
                 .commit();
-
-        if (infoFragment != null) {
-            String addressText = getAddressText(address);
-            infoFragment.updatePostalAddress(addressText);
-        }
 
         return false;
     }
@@ -178,12 +165,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private Address getAddress(double latitude, double longitude) {
         Geocoder geocoder = new Geocoder(this);
-
+        Log.d("GetAddress : ", "Try");
         try {
             List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
 
             if (addresses != null && !addresses.isEmpty()) {
                 Address address = addresses.get(0);
+                Log.d("GetAddress : ", "" + address);
                 return address;
 
             } else {
@@ -206,7 +194,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             String addressText = addressLine;
             return addressText;
         }
-        return "";
+        return "null";
     }
 
 }

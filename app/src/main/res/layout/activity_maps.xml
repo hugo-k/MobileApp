@@ -23,12 +23,6 @@
         android:background="@drawable/baseline_gps_fixed_24"
         />
 
-    <Button
-        android:id="@+id/goToDataDisplay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button" />
-
     <FrameLayout
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
