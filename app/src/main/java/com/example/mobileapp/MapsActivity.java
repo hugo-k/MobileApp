@@ -143,28 +143,22 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     private void displayMarkers(){
-        // Parse JSON file on a String
-        String parsedJson = JSONFileReader.readJSONFromRawResource(this, R.raw.dataset_test);
-        // Look if the String is not empty
-        try {
-            JSONObject jsonObject = new JSONObject(parsedJson);
 
-            // Create new JSON object by parsing the precedent
-            JSONArray features = jsonObject.getJSONArray("features");
+        String featuresLength = JSONFileReader.dataToSearch(this, -1, null, null);
 
-            for (int i = 0; i < features.length(); i++) {
-                JSONObject feature = features.getJSONObject(i);
-                JSONObject geometry = feature.getJSONObject("geometry");
-                String x = geometry.getString("x");
-                String y = geometry.getString("y");
+        for (int i = 0; i < Integer.parseInt(featuresLength); i++) {
+            String x = JSONFileReader.dataToSearch(this, i, "geometry", "x");
+            String y = JSONFileReader.dataToSearch(this, i, "geometry", "y");
 
-                LatLng markerPosition = new LatLng(Double.parseDouble(y), Double.parseDouble(x)); // Latitude and longitude
-                Marker marker = mMap.addMarker(new MarkerOptions().position(markerPosition));
-                marker.showInfoWindow();
-            }
-        } catch (JSONException e) {
-            Log.d("tag", "Error: " + e);
-            throw new RuntimeException(e);
+
+            LatLng markerPosition = new LatLng(Double.parseDouble(y), Double.parseDouble(x)); // Latitude and longitude
+            Marker marker = mMap.addMarker(new MarkerOptions().position(markerPosition));
+
+            // Search and give TID identification as TAG to the marker
+            String tid = JSONFileReader.dataToSearch(this, i, "attributes", "tid");
+            marker.setTag(Integer.parseInt(tid));
+
+            marker.showInfoWindow();
         }
     }
 
