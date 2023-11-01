@@ -36,6 +36,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.List;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
@@ -76,12 +77,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         LatLng markerPosition = marker.getPosition();
         Address address = getAddress(markerPosition.latitude, markerPosition.longitude);
         String addressText = getAddressText(address);
+        String tagText = Integer.toString((int) marker.getTag());
+
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(markerPosition, 20);
         mMap.animateCamera(cameraUpdate);
+
 
         if (infoFragment != null) {
             Bundle bundle = new Bundle();
             bundle.putString("address", addressText);
+            bundle.putString("tid", tagText);
             Log.d("GetAd", "act1 : " + addressText);
             infoFragment.setArguments(bundle);
 

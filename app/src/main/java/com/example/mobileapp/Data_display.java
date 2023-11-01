@@ -65,11 +65,12 @@ public class Data_display extends AppCompatActivity {
         TextView TestTextView = findViewById(R.id.textView01);
         TestTextView.setText(binCategory);
 
-
+        // Take datas send by InfoFragment from MapsActivity
         Bundle extras = getIntent().getExtras();
         if(extras != null){
             String addressFromActivity = extras.getString("address");
-            Log.d("GetAd", "act2 : " + addressFromActivity);
+            String tagFromActivity = extras.getString("tid");
+            Log.d("GetAd", "tag : " + tagFromActivity);
 
             TextView textViewLocation = findViewById(R.id.textView02);
             textViewLocation.setText(addressFromActivity);

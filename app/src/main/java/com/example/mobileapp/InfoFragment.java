@@ -33,10 +33,12 @@ public class InfoFragment extends Fragment {
             public void onClick(View view) {
 
                 String addressFromActivity = getArguments().getString("address");
+                String tagFromActivity = getArguments().getString("tid");
                 Log.d("GetAddress", "address from act :" + addressFromActivity);
 
                 Intent i = new Intent(getActivity(), Data_display.class);
                 i.putExtra("address", addressFromActivity);
+                i.putExtra("tid", tagFromActivity);
                 Log.d("GetAd", "frag : " + addressFromActivity);
                 startActivity(i);
             }
