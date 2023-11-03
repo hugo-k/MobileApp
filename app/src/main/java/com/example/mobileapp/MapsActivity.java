@@ -86,8 +86,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         if (infoFragment != null) {
             Bundle bundle = new Bundle();
             bundle.putString("address", addressText);
-            bundle.putString("tid", tagText);
-            Log.d("GetAd", "act1 : " + addressText);
+            bundle.putString("index", tagText);
             infoFragment.setArguments(bundle);
 
             infoFragment.updatePostalAddress(addressText);
@@ -159,10 +158,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             LatLng markerPosition = new LatLng(Double.parseDouble(y), Double.parseDouble(x)); // Latitude and longitude
             Marker marker = mMap.addMarker(new MarkerOptions().position(markerPosition));
 
-            // Search and give TID identification as TAG to the marker
+            /* Search and give TID identification as TAG to the marker
             String tid = JSONFileReader.dataToSearch(this, i, "attributes", "tid");
             marker.setTag(Integer.parseInt(tid));
-
+            */
+            marker.setTag(i);
             marker.showInfoWindow();
         }
     }

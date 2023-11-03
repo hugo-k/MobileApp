@@ -32,48 +32,46 @@ public class Data_display extends AppCompatActivity {
             }
         });
 
-        String tid = JSONFileReader.dataToSearch(this, 0, "attributes", "tid");
-        String binCategory = JSONFileReader.dataToSearch(this, 0, "attributes", "komodita_odpad_separovany");
-
-
-        switch (binCategory) {
-            case "Plasty, nápojové kartony a hliníkové plechovky od nápojů":
-                imageCategory.setImageResource(R.drawable.plastic);
-                binCategory = "Plastic";
-                break;
-            case "Papír":
-                imageCategory.setImageResource(R.drawable.paper);
-                binCategory = "Paper";
-                break;
-            case "Biologický odpad":
-                imageCategory.setImageResource(R.drawable.organic);
-                binCategory = "Organic";
-                break;
-            case "Sklo barevné":
-                imageCategory.setImageResource(R.drawable.coloredglass);
-                binCategory = "Colored glasses";
-                break;
-            case "Sklo bílé":
-                imageCategory.setImageResource(R.drawable.whiteglass);
-                binCategory = "White glasses";
-                break;
-            default:
-                binCategory = "Nothing";
-        }
-
-        //Print in text view
-        TextView TestTextView = findViewById(R.id.textView01);
-        TestTextView.setText(binCategory);
-
         // Take datas send by InfoFragment from MapsActivity
         Bundle extras = getIntent().getExtras();
-        if(extras != null){
+        if(extras != null) {
+
             String addressFromActivity = extras.getString("address");
-            String tagFromActivity = extras.getString("tid");
-            Log.d("GetAd", "tag : " + tagFromActivity);
+            String tagFromActivity = extras.getString("index");
 
             TextView textViewLocation = findViewById(R.id.textView02);
             textViewLocation.setText(addressFromActivity);
+
+            String binCategory = JSONFileReader.dataToSearch(this, Integer.parseInt(tagFromActivity), "attributes", "komodita_odpad_separovany");
+
+            switch (binCategory) {
+                case "Plasty, nápojové kartony a hliníkové plechovky od nápojů":
+                    imageCategory.setImageResource(R.drawable.plastic);
+                    binCategory = "Plastic";
+                    break;
+                case "Papír":
+                    imageCategory.setImageResource(R.drawable.paper);
+                    binCategory = "Paper";
+                    break;
+                case "Biologický odpad":
+                    imageCategory.setImageResource(R.drawable.organic);
+                    binCategory = "Organic";
+                    break;
+                case "Sklo barevné":
+                    imageCategory.setImageResource(R.drawable.coloredglass);
+                    binCategory = "Colored glasses";
+                    break;
+                case "Sklo bílé":
+                    imageCategory.setImageResource(R.drawable.whiteglass);
+                    binCategory = "White glasses";
+                    break;
+                default:
+                    binCategory = "Nothing";
+            }
+
+            //Print in text view
+            //TextView TestTextView = findViewById(R.id.textView01);
+            //TestTextView.setText(binCategory);
         }
 
     }
