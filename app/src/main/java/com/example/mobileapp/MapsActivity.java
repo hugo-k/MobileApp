@@ -2,17 +2,13 @@ package com.example.mobileapp;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,49 +28,56 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     private GoogleMap mMap;
-    private InfoFragment infoFragment;
+    private InfoFragment infoFragment = new InfoFragment();
     private ViewPager viewPager;
     private InfoFragmentPagerAdapter pagerAdapter;
-    private List<InfoFragment> infoFragments;
-    private List<String> markerAddresses;
+    private List<InfoFragment> infoFragments = new ArrayList<>();
+    private List<String> markerAddresses = new ArrayList<>();
     private List<Marker> markers = new ArrayList<>();
 
 
-
+    // onCreate method executed when the app is open and only one time : used to create instances
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        infoFragment = new InfoFragment();
-        markerAddresses = new ArrayList<>();
-        infoFragments = new ArrayList<>();
         pagerAdapter = new InfoFragmentPagerAdapter(getSupportFragmentManager(), infoFragments);
 
         mapFragment.getMapAsync(this);
 
         viewPager = findViewById(R.id.fragmentContainer);
+        ImageButton btnCurrentLocation = findViewById(R.id.btnCurrentLocation);
+        ImageButton btnZoomIn = findViewById(R.id.btnZoomIn);
+        ImageButton btnZoomOut = findViewById(R.id.btnZoomOut);
 
-        ImageButton requestPermissionLocation = findViewById(R.id.requestPermissionLocation);
-        requestPermissionLocation.setOnClickListener(new View.OnClickListener() {
+        btnCurrentLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 requestLocationPermission();
+            }
+        });
+        btnZoomIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CameraUpdate zoomIn = CameraUpdateFactory.zoomIn();
+                mMap.animateCamera(zoomIn);
+            }
+        });
+        btnZoomOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CameraUpdate zoomOut = CameraUpdateFactory.zoomOut();
+                mMap.animateCamera(zoomOut);
             }
         });
 
@@ -87,14 +90,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             public void onPageSelected(int position) {
                 Marker marker = markers.get(position);
                 marker.showInfoWindow();
-                zoomToMarker(marker.getPosition().latitude, marker.getPosition().longitude, 17);
+                zoomOnMap(marker.getPosition().latitude, marker.getPosition().longitude, 17);
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
             }
         });
-
     }
 
     @Override
@@ -107,16 +109,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     public boolean onMarkerClick(Marker marker) {
-        LatLng markerPosition = marker.getPosition();
-        int markerIndex = markers.indexOf(marker);
+        LatLng markerPosition = marker.getPosition(); // Get the position of the selected marker
+        int markerIndex = markers.indexOf(marker); // Get the id of the marker
 
-        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(markerPosition, 15);
-        mMap.animateCamera(cameraUpdate);
+        zoomOnMap(markerPosition.latitude, marker.getPosition().longitude, 15);
 
         if (markerIndex != -1) {
-            viewPager.setCurrentItem(markerIndex);
+            viewPager.setCurrentItem(markerIndex); // Display the info card of the selected marker
         }
-
         return false;
     }
 
@@ -130,7 +130,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 @Override
                 public void onSuccess(Location location) {
                     if (location != null) {
-                        zoomToMarker(location.getLatitude(), location.getLongitude(), 17);
+                        zoomOnMap(location.getLatitude(), location.getLongitude(), 17);
                     } else {
                         Toast.makeText(MapsActivity.this, "Impossible to find location", Toast.LENGTH_LONG).show();
                     }
@@ -206,11 +206,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private String getAddressText(Address address) {
         if (address != null) {
             String addressLine = address.getAddressLine(0);
+/*
             String city = address.getLocality();
             String state = address.getAdminArea();
             String country = address.getCountryName();
             String postalCode = address.getPostalCode();
             String knownName = address.getFeatureName();
+*/
 
             String addressText = addressLine;
             return addressText;
@@ -218,6 +220,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         return "null";
     }
 
+    // Create ViewPager : Cards sliders of collect points
     private void createCollectPointsList(String addressText, Marker marker) {
         InfoFragment newInfoFragment = InfoFragment.newInstance(addressText);
         infoFragments.add(newInfoFragment);
@@ -228,7 +231,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         viewPager.setCurrentItem(infoFragments.size() - 1);
     }
 
-    private void zoomToMarker(double latitude, double longitude, int zoom){
+    // Method to zoom on the map, with Lat, Long and zoom value
+    private void zoomOnMap(double latitude, double longitude, int zoom){
         LatLng currentLocation = new LatLng(latitude, longitude);
         CameraUpdate locationUpdate = CameraUpdateFactory.newLatLngZoom(currentLocation, zoom);
         mMap.animateCamera(locationUpdate);
