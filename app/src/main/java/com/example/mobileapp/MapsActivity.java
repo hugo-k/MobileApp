@@ -18,6 +18,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -36,6 +37,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
@@ -43,6 +47,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     private GoogleMap mMap;
     private InfoFragment infoFragment;
+    private ViewPager viewPager;
+    private InfoFragmentPagerAdapter pagerAdapter;
+    private List<InfoFragment> infoFragments;
+    private List<String> markerAddresses;
+    private List<Marker> markers = new ArrayList<>();
+
 
 
     @Override
@@ -52,7 +62,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         infoFragment = new InfoFragment();
+        markerAddresses = new ArrayList<>();
+        infoFragments = new ArrayList<>();
+        pagerAdapter = new InfoFragmentPagerAdapter(getSupportFragmentManager(), infoFragments);
+
         mapFragment.getMapAsync(this);
+
+        viewPager = findViewById(R.id.fragmentContainer);
 
         ImageButton requestPermissionLocation = findViewById(R.id.requestPermissionLocation);
         requestPermissionLocation.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +77,24 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 requestLocationPermission();
             }
         });
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                Marker marker = markers.get(position);
+                marker.showInfoWindow();
+                zoomToMarker(marker.getPosition().latitude, marker.getPosition().longitude, 17);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
+
     }
 
     @Override
@@ -74,24 +108,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public boolean onMarkerClick(Marker marker) {
         LatLng markerPosition = marker.getPosition();
-        Address address = getAddress(markerPosition.latitude, markerPosition.longitude);
-        String addressText = getAddressText(address);
-        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(markerPosition, 20);
+        int markerIndex = markers.indexOf(marker);
+
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(markerPosition, 15);
         mMap.animateCamera(cameraUpdate);
 
-        if (infoFragment != null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("address", addressText);
-            Log.d("GetAd", "act1 : " + addressText);
-            infoFragment.setArguments(bundle);
-
-            infoFragment.updatePostalAddress(addressText);
+        if (markerIndex != -1) {
+            viewPager.setCurrentItem(markerIndex);
         }
-
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragmentContainer, infoFragment)
-                .addToBackStack(null)
-                .commit();
 
         return false;
     }
@@ -106,9 +130,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 @Override
                 public void onSuccess(Location location) {
                     if (location != null) {
-                        LatLng currentLocation = new LatLng(location.getLatitude(), location.getLongitude());
-                        CameraUpdate locationUpdate = CameraUpdateFactory.newLatLngZoom(currentLocation, 17); // Ajustez la valeur du zoom (15 est un exemple)
-                        mMap.animateCamera(locationUpdate);
+                        zoomToMarker(location.getLatitude(), location.getLongitude(), 17);
                     } else {
                         Toast.makeText(MapsActivity.this, "Impossible to find location", Toast.LENGTH_LONG).show();
                     }
@@ -154,6 +176,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             LatLng markerPosition = new LatLng(Double.parseDouble(y), Double.parseDouble(x)); // Latitude and longitude
             Marker marker = mMap.addMarker(new MarkerOptions().position(markerPosition));
 
+            createCollectPointsList(getAddressText(getAddress(markerPosition.latitude, markerPosition.longitude)), marker);
+
             // Search and give TID identification as TAG to the marker
             String tid = JSONFileReader.dataToSearch(this, i, "attributes", "tid");
             marker.setTag(Integer.parseInt(tid));
@@ -164,13 +188,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private Address getAddress(double latitude, double longitude) {
         Geocoder geocoder = new Geocoder(this);
-        Log.d("GetAddress : ", "Try");
         try {
             List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
 
             if (addresses != null && !addresses.isEmpty()) {
                 Address address = addresses.get(0);
-                Log.d("GetAddress : ", "" + address);
                 return address;
 
             } else {
@@ -196,4 +218,19 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         return "null";
     }
 
+    private void createCollectPointsList(String addressText, Marker marker) {
+        InfoFragment newInfoFragment = InfoFragment.newInstance(addressText);
+        infoFragments.add(newInfoFragment);
+
+        markers.add(marker);
+
+        viewPager.setAdapter(pagerAdapter);
+        viewPager.setCurrentItem(infoFragments.size() - 1);
+    }
+
+    private void zoomToMarker(double latitude, double longitude, int zoom){
+        LatLng currentLocation = new LatLng(latitude, longitude);
+        CameraUpdate locationUpdate = CameraUpdateFactory.newLatLngZoom(currentLocation, zoom);
+        mMap.animateCamera(locationUpdate);
+    }
 }
