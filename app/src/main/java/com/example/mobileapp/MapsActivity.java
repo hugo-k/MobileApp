@@ -171,12 +171,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         for (int i = 0; i < Integer.parseInt(featuresLength); i++) {
             String x = JSONFileReader.dataToSearch(this, i, "geometry", "x");
             String y = JSONFileReader.dataToSearch(this, i, "geometry", "y");
+            String wasteType = JSONFileReader.dataToSearch(this, i, "attributes", "komodita_odpad_separovany");
 
 
             LatLng markerPosition = new LatLng(Double.parseDouble(y), Double.parseDouble(x)); // Latitude and longitude
             Marker marker = mMap.addMarker(new MarkerOptions().position(markerPosition));
 
-            createCollectPointsList(getAddressText(getAddress(markerPosition.latitude, markerPosition.longitude)), marker);
+            createCollectPointsList(getAddressText(getAddress(markerPosition.latitude, markerPosition.longitude)), wasteType, marker);
 
             // Search and give TID identification as TAG to the marker
             String tid = JSONFileReader.dataToSearch(this, i, "attributes", "tid");
@@ -221,8 +222,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     // Create ViewPager : Cards sliders of collect points
-    private void createCollectPointsList(String addressText, Marker marker) {
-        InfoFragment newInfoFragment = InfoFragment.newInstance(addressText);
+    private void createCollectPointsList(String addressText, String wasteType, Marker marker) {
+        InfoFragment newInfoFragment = InfoFragment.newInstance(addressText, wasteType);
         infoFragments.add(newInfoFragment);
 
         markers.add(marker);

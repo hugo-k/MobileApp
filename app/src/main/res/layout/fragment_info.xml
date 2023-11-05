@@ -9,13 +9,15 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp"
-    app:cardUseCompatPadding="true"
-    android:layout_marginTop="680dp">
+    app:cardUseCompatPadding="true">
+<!--    android:layout_marginTop="680dp"-->
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="141dp"
         android:orientation="horizontal">
+
         <ImageView
             android:layout_width="120dp"
             android:layout_height="120dp"
@@ -24,34 +26,39 @@
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="128dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:orientation="vertical"
             android:padding="8dp">
 
             <TextView
-                android:id="@+id/txtContainerName"
+                android:id="@+id/wasteTypeTxtView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Container name"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txtAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text="Address"
                 android:textSize="16sp" />
         </LinearLayout>
 
+
+        <ImageButton
+            android:id="@+id/btnMoreInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/baseline_add_24" />
+
     </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Direction"
-        android:layout_gravity="end"
-        android:layout_margin="8dp"
-        android:id="@+id/btnDirection" />
 
 </androidx.cardview.widget.CardView>
