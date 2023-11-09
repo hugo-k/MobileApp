@@ -29,6 +29,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -109,9 +110,25 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     public boolean onMarkerClick(Marker marker) {
+        LatLng markerPosition = marker.getPosition();
+        Address address = getAddress(markerPosition.latitude, markerPosition.longitude);
+        String addressText = getAddressText(address);
+        String tagText = Integer.toString((int) marker.getTag());
+
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(markerPosition, 20);
+        mMap.animateCamera(cameraUpdate);
         LatLng markerPosition = marker.getPosition(); // Get the position of the selected marker
         int markerIndex = markers.indexOf(marker); // Get the id of the marker
 
+
+        if (infoFragment != null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("address", addressText);
+            bundle.putString("index", tagText);
+            bundle.putString("latitude", String.valueOf(markerPosition.latitude));
+            bundle.putString("longitude", String.valueOf(markerPosition.longitude));
+            Log.d("recu", "" + bundle);
+            infoFragment.setArguments(bundle);
         zoomOnMap(markerPosition.latitude, marker.getPosition().longitude, 15);
 
         if (markerIndex != -1) {
@@ -130,6 +147,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 @Override
                 public void onSuccess(Location location) {
                     if (location != null) {
+                        LatLng currentLocation = new LatLng(location.getLatitude(), location.getLongitude());
+                        CameraUpdate locationUpdate = CameraUpdateFactory.newLatLngZoom(currentLocation, 17);
+                        mMap.animateCamera(locationUpdate);
                         zoomOnMap(location.getLatitude(), location.getLongitude(), 17);
                     } else {
                         Toast.makeText(MapsActivity.this, "Impossible to find location", Toast.LENGTH_LONG).show();
@@ -177,12 +197,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             LatLng markerPosition = new LatLng(Double.parseDouble(y), Double.parseDouble(x)); // Latitude and longitude
             Marker marker = mMap.addMarker(new MarkerOptions().position(markerPosition));
 
+            /* Search and give TID identification as TAG to the marker
             createCollectPointsList(getAddressText(getAddress(markerPosition.latitude, markerPosition.longitude)), wasteType, marker);
 
             // Search and give TID identification as TAG to the marker
             String tid = JSONFileReader.dataToSearch(this, i, "attributes", "tid");
             marker.setTag(Integer.parseInt(tid));
-
+            */
+            marker.setTag(i);
             marker.showInfoWindow();
         }
     }
