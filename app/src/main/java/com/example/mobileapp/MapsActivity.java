@@ -87,6 +87,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             Bundle bundle = new Bundle();
             bundle.putString("address", addressText);
             bundle.putString("index", tagText);
+            bundle.putString("latitude", String.valueOf(markerPosition.latitude));
+            bundle.putString("longitude", String.valueOf(markerPosition.longitude));
+            Log.d("recu", "" + bundle);
             infoFragment.setArguments(bundle);
 
             infoFragment.updatePostalAddress(addressText);
@@ -111,7 +114,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 public void onSuccess(Location location) {
                     if (location != null) {
                         LatLng currentLocation = new LatLng(location.getLatitude(), location.getLongitude());
-                        CameraUpdate locationUpdate = CameraUpdateFactory.newLatLngZoom(currentLocation, 17); // Ajustez la valeur du zoom (15 est un exemple)
+                        CameraUpdate locationUpdate = CameraUpdateFactory.newLatLngZoom(currentLocation, 17);
                         mMap.animateCamera(locationUpdate);
                     } else {
                         Toast.makeText(MapsActivity.this, "Impossible to find location", Toast.LENGTH_LONG).show();

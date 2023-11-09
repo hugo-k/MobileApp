@@ -34,10 +34,14 @@ public class InfoFragment extends Fragment {
 
                 String addressFromActivity = getArguments().getString("address");
                 String tagFromActivity = getArguments().getString("index");
+                String latitude = getArguments().getString("latitude");
+                String longitude = getArguments().getString("longitude");
 
                 Intent i = new Intent(getActivity(), Data_display.class);
                 i.putExtra("address", addressFromActivity);
                 i.putExtra("index", tagFromActivity);
+                i.putExtra("latitude", latitude);
+                i.putExtra("longitude", longitude);
 
                 startActivity(i);
             }
