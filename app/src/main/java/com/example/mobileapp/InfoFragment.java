@@ -26,7 +26,7 @@ public class InfoFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_info, container, false);
         addressTextView = view.findViewById(R.id.txtAddress);
 
-        Button openInformations = view.findViewById(R.id.btnDirection);
+        Button openInformations = view.findViewById(R.id.btnMoreInfo);
 
         openInformations.setOnClickListener(new View.OnClickListener() {
             @Override

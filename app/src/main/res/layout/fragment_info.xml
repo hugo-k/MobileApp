@@ -134,6 +134,6 @@
         android:text="Direction"
         android:layout_gravity="end"
         android:layout_margin="8dp"
-        android:id="@+id/btnDirection" />
+        android:id="@+id/btnMoreInfo" />
 
 </androidx.cardview.widget.CardView>
