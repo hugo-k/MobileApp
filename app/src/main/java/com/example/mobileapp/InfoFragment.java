@@ -46,6 +46,9 @@ public class InfoFragment extends Fragment {
         TextView wasteTypeTxtView = view.findViewById(R.id.wasteTypeTxtView);
         ImageButton btnDataDisplay = view.findViewById(R.id.btnMoreInfo);
 
+        Button openInformations = view.findViewById(R.id.btnMoreInfo);
+
+        openInformations.setOnClickListener(new View.OnClickListener() {
         btnDataDisplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,10 +79,11 @@ public class InfoFragment extends Fragment {
         return view;
     }
 
-    public interface OnMarkerSelectedListener {
-        void onMarkerSelected(int markerIndex);
+    public void updatePostalAddress(String addressText) {
+        if (addressTextView != null) {
+            Log.d("GetAddress", addressText);
+            addressTextView.setText(addressText);
+        }
     }
-    private OnMarkerSelectedListener markerSelectedListener;
-
 
 }
