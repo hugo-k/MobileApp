@@ -22,18 +22,32 @@ import com.google.android.gms.maps.model.Marker;
 public class InfoFragment extends Fragment {
 
     private TextView addressTextView;
+    public int fragmentId;
+    private Marker associatedMarker;
 
-    public InfoFragment() {
+    public static InfoFragment newInstance(String address, String wasteType) {
+        InfoFragment fragment = new InfoFragment();
+        Bundle args = new Bundle();
+        args.putString("address", address);
+        args.putString("wasteType", wasteType);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        fragmentId = getArguments().getInt("fragmentId", -1);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_info, container, false);
-        addressTextView = view.findViewById(R.id.txtAddress);
+        TextView addressTextView = view.findViewById(R.id.txtAddress);
+        TextView wasteTypeTxtView = view.findViewById(R.id.wasteTypeTxtView);
+        ImageButton btnDataDisplay = view.findViewById(R.id.btnMoreInfo);
 
-        Button openInformations = view.findViewById(R.id.btnMoreInfo);
-
-        openInformations.setOnClickListener(new View.OnClickListener() {
+        btnDataDisplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -52,15 +66,28 @@ public class InfoFragment extends Fragment {
             }
         });
 
+        Bundle args = getArguments();
+        if (args != null) {
+            String address = args.getString("address");
+            addressTextView.setText(address);
+
+            String wasteType = args.getString("wasteType");
+            wasteTypeTxtView.setText(wasteType);
+        }
+
         return view;
     }
 
     public void updatePostalAddress(String addressText) {
         if (addressTextView != null) {
-            Log.d("GetAddress", addressText);
             addressTextView.setText(addressText);
         }
     }
+
+    public interface OnMarkerSelectedListener {
+        void onMarkerSelected(int markerIndex);
+    }
+    private OnMarkerSelectedListener markerSelectedListener;
 
 
 }
