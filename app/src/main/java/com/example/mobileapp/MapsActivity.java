@@ -7,6 +7,8 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -117,7 +119,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(markerPosition, 20);
         mMap.animateCamera(cameraUpdate);
-        LatLng markerPosition = marker.getPosition(); // Get the position of the selected marker
         int markerIndex = markers.indexOf(marker); // Get the id of the marker
 
 
@@ -129,10 +130,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             bundle.putString("longitude", String.valueOf(markerPosition.longitude));
             Log.d("recu", "" + bundle);
             infoFragment.setArguments(bundle);
-        zoomOnMap(markerPosition.latitude, marker.getPosition().longitude, 15);
+            zoomOnMap(markerPosition.latitude, marker.getPosition().longitude, 15);
 
-        if (markerIndex != -1) {
-            viewPager.setCurrentItem(markerIndex); // Display the info card of the selected marker
+            if (markerIndex != -1) {
+                viewPager.setCurrentItem(markerIndex); // Display the info card of the selected marker
+            }
+            return false;
         }
         return false;
     }
@@ -197,9 +200,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             LatLng markerPosition = new LatLng(Double.parseDouble(y), Double.parseDouble(x)); // Latitude and longitude
             Marker marker = mMap.addMarker(new MarkerOptions().position(markerPosition));
 
-            /* Search and give TID identification as TAG to the marker
+            /* Search and give TID identification as TAG to the marker*/
             createCollectPointsList(getAddressText(getAddress(markerPosition.latitude, markerPosition.longitude)), wasteType, marker);
 
+            /*
             // Search and give TID identification as TAG to the marker
             String tid = JSONFileReader.dataToSearch(this, i, "attributes", "tid");
             marker.setTag(Integer.parseInt(tid));

@@ -21,7 +21,7 @@ import com.google.android.gms.maps.model.Marker;
 
 public class InfoFragment extends Fragment {
 
-    private Marker associatedMarker;
+    private TextView txtAddress;
     public int fragmentId;
 
     public static InfoFragment newInstance(String address, String wasteType) {
@@ -46,43 +46,42 @@ public class InfoFragment extends Fragment {
         TextView wasteTypeTxtView = view.findViewById(R.id.wasteTypeTxtView);
         ImageButton btnDataDisplay = view.findViewById(R.id.btnMoreInfo);
 
-        Button openInformations = view.findViewById(R.id.btnMoreInfo);
-
-        openInformations.setOnClickListener(new View.OnClickListener() {
         btnDataDisplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle args = getArguments();
+                if (args != null) {
 
-                String addressFromActivity = getArguments().getString("address");
-                String tagFromActivity = getArguments().getString("index");
-                String latitude = getArguments().getString("latitude");
-                String longitude = getArguments().getString("longitude");
+                    /*String address = args.getString("address");
+                    addressTextView.setText(address);
 
-                Intent i = new Intent(getActivity(), Data_display.class);
-                i.putExtra("address", addressFromActivity);
-                i.putExtra("index", tagFromActivity);
-                i.putExtra("latitude", latitude);
-                i.putExtra("longitude", longitude);
+                    String wasteType = args.getString("wasteType");
+                    wasteTypeTxtView.setText(wasteType);*/
 
-                startActivity(i);
+                    String addressFromActivity = args.getString("address");
+                    String tagFromActivity = args.getString("index");
+                    String latitude = args.getString("latitude");
+                    String longitude = args.getString("longitude");
+
+
+                    Intent i = new Intent(getActivity(), Data_display.class);
+                    i.putExtra("address", addressFromActivity);
+                    i.putExtra("index", tagFromActivity);
+                    i.putExtra("latitude", latitude);
+                    i.putExtra("longitude", longitude);
+
+                    startActivity(i);
+                }
             }
         });
 
-        Bundle args = getArguments();
-        if (args != null) {
-            String address = args.getString("address");
-            addressTextView.setText(address);
 
-            String wasteType = args.getString("wasteType");
-            wasteTypeTxtView.setText(wasteType);
-        }
         return view;
     }
 
     public void updatePostalAddress(String addressText) {
-        if (addressTextView != null) {
-            Log.d("GetAddress", addressText);
-            addressTextView.setText(addressText);
+        if (txtAddress != null) {
+            txtAddress.setText(addressText);
         }
     }
 
