@@ -94,6 +94,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 Marker marker = markers.get(position);
                 marker.showInfoWindow();
                 zoomOnMap(marker.getPosition().latitude, marker.getPosition().longitude, 17);
+                onMarkerClick(marker);
             }
 
             @Override
@@ -117,6 +118,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         String addressText = getAddressText(address);
         String tagText = Integer.toString((int) marker.getTag());
 
+        Log.d("markerrr", "" + tagText);
+
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(markerPosition, 20);
         mMap.animateCamera(cameraUpdate);
         int markerIndex = markers.indexOf(marker); // Get the id of the marker
@@ -128,7 +131,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             bundle.putString("index", tagText);
             bundle.putString("latitude", String.valueOf(markerPosition.latitude));
             bundle.putString("longitude", String.valueOf(markerPosition.longitude));
-            Log.d("recu", "" + bundle);
+            Log.d("Data_display", "" + bundle);
             infoFragment.setArguments(bundle);
             zoomOnMap(markerPosition.latitude, marker.getPosition().longitude, 15);
 
@@ -249,7 +252,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     // Create ViewPager : Cards sliders of collect points
     private void createCollectPointsList(String addressText, String wasteType, Marker marker) {
-        InfoFragment newInfoFragment = InfoFragment.newInstance(addressText, wasteType);
+        double latitude = marker.getPosition().latitude;
+        double longitude = marker.getPosition().longitude;
+
+        InfoFragment newInfoFragment = InfoFragment.newInstance(addressText, wasteType, latitude, longitude);
         infoFragments.add(newInfoFragment);
 
         markers.add(marker);

@@ -80,51 +80,44 @@ public class Data_display extends AppCompatActivity implements OnMapReadyCallbac
             }
         });
 
+        String tid = JSONFileReader.dataToSearch(this, 0, "attributes", "tid");
+        String binCategory = JSONFileReader.dataToSearch(this, 0, "attributes", "komodita_odpad_separovany");
+
+
+        switch (binCategory) {
+            case "Plasty, nápojové kartony a hliníkové plechovky od nápojů":
+                imageCategoryIcon.setImageResource(R.drawable.plastic);
+                binCategory = "Plastic";
+                break;
+            case "Papír":
+                imageCategoryIcon.setImageResource(R.drawable.paper);
+                binCategory = "Paper";
+                break;
+            case "Biologický odpad":
+                imageCategoryIcon.setImageResource(R.drawable.organic);
+                binCategory = "Organic";
+                break;
+            case "Sklo barevné":
+                imageCategoryIcon.setImageResource(R.drawable.coloredglass);
+                binCategory = "Colored glasses";
+                break;
+            case "Sklo bílé":
+                imageCategoryIcon.setImageResource(R.drawable.whiteglass);
+                binCategory = "White glasses";
+                break;
+            default:
+                binCategory = "Nothing";
+        }
+
         // Take datas send by InfoFragment from MapsActivity
         Bundle extras = getIntent().getExtras();
-        if(extras != null) {
-
+        if(extras != null){
             String addressFromActivity = extras.getString("address");
-            String tagFromActivity = extras.getString("index");
-            // Get latitude and longitude, convert into Double
-            latitude = Double.parseDouble(extras.getString("latitude"));
-            longitude = Double.parseDouble(extras.getString("longitude"));
+            String tagFromActivity = extras.getString("tid");
+            Log.d("GetAd", "tag : " + tagFromActivity);
 
             TextView textViewLocation = findViewById(R.id.textView02);
             textViewLocation.setText(addressFromActivity);
-
-            String binCategory = JSONFileReader.dataToSearch(this, Integer.parseInt(tagFromActivity), "attributes", "komodita_odpad_separovany");
-
-            switch (binCategory) {
-                case "Plasty, nápojové kartony a hliníkové plechovky od nápojů":
-                    imageCategoryIcon.setImageResource(R.drawable.plastic);
-                    binCategory = "Plastic";
-                    break;
-                case "Papír":
-                    imageCategoryIcon.setImageResource(R.drawable.paper);
-                    binCategory = "Paper";
-                    break;
-                case "Biologický odpad":
-                    imageCategoryIcon.setImageResource(R.drawable.organic);
-                    binCategory = "Organic";
-                    break;
-                case "Sklo barevné":
-                    imageCategoryIcon.setImageResource(R.drawable.coloredglass);
-                    binCategory = "Colored glasses";
-                    break;
-                case "Sklo bílé":
-                    imageCategoryIcon.setImageResource(R.drawable.whiteglass);
-                    binCategory = "White glasses";
-                    break;
-                default:
-                    binCategory = "Nothing";
-            }
-
-
-
-            //Print in text view
-            //TextView TestTextView = findViewById(R.id.textView01);
-            //TestTextView.setText(binCategory);
         }
 
     }
@@ -136,6 +129,7 @@ public class Data_display extends AppCompatActivity implements OnMapReadyCallbac
         Marker marker = mMap.addMarker(new MarkerOptions().position(markerPosition));
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(markerPosition, 19);
         mMap.animateCamera(cameraUpdate);
+        Log.d("mappp", ""+ latitude + "  " + longitude);
     }
 
 }
