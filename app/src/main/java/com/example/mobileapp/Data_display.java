@@ -51,7 +51,7 @@ public class Data_display extends AppCompatActivity implements OnMapReadyCallbac
         ImageView imageCategoryIcon = findViewById(R.id.imageViewCategoryIcon);
         ImageButton goToMapsApp = findViewById(R.id.goToMapsApp);
 
-        ImageButton goToMapsActivity = (ImageButton)findViewById(R.id.goToMapsActivity);
+        ImageButton goToMapsActivity = (ImageButton) findViewById(R.id.goToMapsActivity);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -111,10 +111,14 @@ public class Data_display extends AppCompatActivity implements OnMapReadyCallbac
 
         // Take datas send by InfoFragment from MapsActivity
         Bundle extras = getIntent().getExtras();
-        if(extras != null){
+        if (extras != null) {
             String addressFromActivity = extras.getString("address");
             String tagFromActivity = extras.getString("tid");
-            Log.d("GetAd", "tag : " + tagFromActivity);
+            String latitudeString = extras.getString("latitude");
+            String longitudeString = extras.getString("longitude");
+
+            latitude = Double.parseDouble(latitudeString);
+            longitude = Double.parseDouble(longitudeString);
 
             TextView textViewLocation = findViewById(R.id.textView02);
             textViewLocation.setText(addressFromActivity);
@@ -129,7 +133,7 @@ public class Data_display extends AppCompatActivity implements OnMapReadyCallbac
         Marker marker = mMap.addMarker(new MarkerOptions().position(markerPosition));
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(markerPosition, 19);
         mMap.animateCamera(cameraUpdate);
-        Log.d("mappp", ""+ latitude + "  " + longitude);
+        Log.d("mappp", "" + latitude + "  " + longitude);
     }
 
 }

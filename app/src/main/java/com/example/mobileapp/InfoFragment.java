@@ -14,15 +14,20 @@ import androidx.fragment.app.Fragment;
 public class InfoFragment extends Fragment {
 
     private TextView addressTextView;
+    private double latitude;
+    private double longitude;
 
-    public static InfoFragment newInstance(String address, String wasteType, double latitude, double longitude) {
+    public static InfoFragment newInstance(String address, String wasteType, double latitude, double longitude, int index) {
         InfoFragment fragment = new InfoFragment();
         Bundle args = new Bundle();
         args.putString("address", address);
         args.putString("wasteType", wasteType);
         args.putString("latitude", String.valueOf(latitude));
         args.putString("longitude", String.valueOf(longitude));
+        args.putInt("index", index);
         fragment.setArguments(args);
+        fragment.latitude = latitude;
+        fragment.longitude = longitude;
         return fragment;
     }
 
@@ -31,6 +36,8 @@ public class InfoFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_info, container, false);
         addressTextView = view.findViewById(R.id.txtAddress);
         ImageButton displayData = view.findViewById(R.id.btnMoreInfo);
+
+
         displayData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,6 +48,8 @@ public class InfoFragment extends Fragment {
                 Intent i = new Intent(getActivity(), Data_display.class);
                 i.putExtra("address", addressFromActivity);
                 i.putExtra("index", tagFromActivity);
+                i.putExtra("latitude", String.valueOf(latitude));
+                i.putExtra("longitude", String.valueOf(longitude));
 
                 startActivity(i);
             }

@@ -94,8 +94,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 Marker marker = markers.get(position);
                 marker.showInfoWindow();
                 zoomOnMap(marker.getPosition().latitude, marker.getPosition().longitude, 17);
-                onMarkerClick(marker);
+
+                Address address = getAddress(marker.getPosition().latitude, marker.getPosition().longitude);
+                String addressText = getAddressText(address);
+
+                InfoFragment newInfoFragment = infoFragments.get(position);
+                newInfoFragment.updatePostalAddress(addressText);
             }
+
 
             @Override
             public void onPageScrollStateChanged(int state) {
@@ -116,9 +122,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         LatLng markerPosition = marker.getPosition();
         Address address = getAddress(markerPosition.latitude, markerPosition.longitude);
         String addressText = getAddressText(address);
-        String tagText = Integer.toString((int) marker.getTag());
-
-        Log.d("markerrr", "" + tagText);
+        //String tagText = Integer.toString((int) marker.getTag());
 
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(markerPosition, 20);
         mMap.animateCamera(cameraUpdate);
@@ -128,12 +132,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         if (infoFragment != null) {
             Bundle bundle = new Bundle();
             bundle.putString("address", addressText);
-            bundle.putString("index", tagText);
+            //bundle.putString("index", tagText);
             bundle.putString("latitude", String.valueOf(markerPosition.latitude));
             bundle.putString("longitude", String.valueOf(markerPosition.longitude));
             Log.d("Data_display", "" + bundle);
             infoFragment.setArguments(bundle);
             zoomOnMap(markerPosition.latitude, marker.getPosition().longitude, 15);
+
+            infoFragment.updatePostalAddress(addressText);
 
             if (markerIndex != -1) {
                 viewPager.setCurrentItem(markerIndex); // Display the info card of the selected marker
@@ -157,6 +163,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         CameraUpdate locationUpdate = CameraUpdateFactory.newLatLngZoom(currentLocation, 17);
                         mMap.animateCamera(locationUpdate);
                         zoomOnMap(location.getLatitude(), location.getLongitude(), 17);
+
                     } else {
                         Toast.makeText(MapsActivity.this, "Impossible to find location", Toast.LENGTH_LONG).show();
                     }
@@ -190,7 +197,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
     }
 
-    private void displayMarkers(){
+    private void displayMarkers() {
 
         String featuresLength = JSONFileReader.dataToSearch(this, -1, null, null);
 
@@ -255,7 +262,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         double latitude = marker.getPosition().latitude;
         double longitude = marker.getPosition().longitude;
 
-        InfoFragment newInfoFragment = InfoFragment.newInstance(addressText, wasteType, latitude, longitude);
+        InfoFragment newInfoFragment = InfoFragment.newInstance(addressText, "", latitude, longitude, infoFragments.size());
         infoFragments.add(newInfoFragment);
 
         markers.add(marker);
@@ -265,7 +272,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     // Method to zoom on the map, with Lat, Long and zoom value
-    private void zoomOnMap(double latitude, double longitude, int zoom){
+    private void zoomOnMap(double latitude, double longitude, int zoom) {
         LatLng currentLocation = new LatLng(latitude, longitude);
         CameraUpdate locationUpdate = CameraUpdateFactory.newLatLngZoom(currentLocation, zoom);
         mMap.animateCamera(locationUpdate);
