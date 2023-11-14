@@ -41,8 +41,7 @@
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:src="@drawable/plastic_wastes" />
+                    android:layout_marginTop="10dp"/>
 
                 <TextView
                     android:id="@+id/txtWasteTypeName"
