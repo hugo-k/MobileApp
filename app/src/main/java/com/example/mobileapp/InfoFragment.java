@@ -7,60 +7,68 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
 public class InfoFragment extends Fragment {
 
-    private TextView addressTextView;
-    private double latitude;
-    private double longitude;
+    private TextView addressTextView, wasteTypeTxtView;
+    private double latitude, longitude;
+    private String index;
+    private Data_display dataDisplay;
+    private WasteContainer wasteContainer;
+    private ImageView imageWasteType;
+    int imageIconResourceId;
 
-    public static InfoFragment newInstance(String address, String wasteType, double latitude, double longitude, int index) {
+
+    private MapsActivity mapsActivity;
+
+    public static InfoFragment newInstance(String address, double latitude, double longitude, String index) {
         InfoFragment fragment = new InfoFragment();
         Bundle args = new Bundle();
         args.putString("address", address);
-        args.putString("wasteType", wasteType);
-        args.putString("latitude", String.valueOf(latitude));
-        args.putString("longitude", String.valueOf(longitude));
-        args.putInt("index", index);
+        args.putDouble("latitude", latitude);
+        args.putDouble("longitude", longitude);
+        args.putString("index", index);
         fragment.setArguments(args);
-        fragment.latitude = latitude;
-        fragment.longitude = longitude;
         return fragment;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_info, container, false);
-        addressTextView = view.findViewById(R.id.txtAddress);
-        ImageButton displayData = view.findViewById(R.id.btnMoreInfo);
 
+        addressTextView = view.findViewById(R.id.txtAddress);
+        wasteTypeTxtView = view.findViewById(R.id.wasteTypeTxtView);
+        imageWasteType = view.findViewById(R.id.imageWasteType);
+        ImageButton displayData = view.findViewById(R.id.btnMoreInfo);
+        dataDisplay = new Data_display();
+
+        Bundle args = getArguments();
+        if (args != null) {
+            wasteContainer = (WasteContainer) args.getSerializable("wasteContainer");
+
+            if (wasteContainer != null) {
+                wasteTypeTxtView.setText(wasteContainer.getBinTypeName());
+                addressTextView.setText(wasteContainer.getAddressText());
+
+                imageIconResourceId = wasteContainer.getImageIconResourceId();
+                imageWasteType.setImageResource(imageIconResourceId);
+            }
+        }
+        Log.d("MyDebug", "" + imageIconResourceId);
 
         displayData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                String addressFromActivity = getArguments().getString("address");
-                String tagFromActivity = getArguments().getString("index");
-
-                Intent i = new Intent(getActivity(), Data_display.class);
-                i.putExtra("address", addressFromActivity);
-                i.putExtra("index", tagFromActivity);
-                i.putExtra("latitude", String.valueOf(latitude));
-                i.putExtra("longitude", String.valueOf(longitude));
-
-                startActivity(i);
+                Intent intent = new Intent(getActivity(), Data_display.class);
+                intent.putExtra("wasteContainer", wasteContainer);
+                startActivity(intent);
             }
         });
 
         return view;
-    }
-
-    public void updatePostalAddress(String addressText) {
-        if (addressTextView != null) {
-            addressTextView.setText(addressText);
-        }
     }
 }

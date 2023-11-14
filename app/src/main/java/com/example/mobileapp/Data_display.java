@@ -33,28 +33,41 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.List;
+
 public class Data_display extends AppCompatActivity implements OnMapReadyCallback {
 
-    private MapView mapView;
-    private ImageView headerImage;
-    private NestedScrollView nestedScrollView;
     private GoogleMap mMap;
-    private int initialImageHeight;
+    private int imageBannerResourceId;
     private double latitude, longitude;
+    private WasteContainer wasteContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_display);
 
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this::onMapReady);
+
+        Intent intent = getIntent();
+        wasteContainer = (WasteContainer) intent.getSerializableExtra("wasteContainer");
+
         ImageView imageCategoryBanner = findViewById(R.id.imageViewCategoryBanner);
         ImageView imageCategoryIcon = findViewById(R.id.imageViewCategoryIcon);
         ImageButton goToMapsApp = findViewById(R.id.goToMapsApp);
+        TextView txtWasteTypeName = findViewById(R.id.txtWasteTypeName);
 
         ImageButton goToMapsActivity = (ImageButton) findViewById(R.id.goToMapsActivity);
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        latitude = wasteContainer.getXloc();
+        longitude = wasteContainer.getYloc();
+
+        txtWasteTypeName.setText(wasteContainer.getBinTypeName());
+        imageCategoryIcon.setImageResource(wasteContainer.getImageIconResourceId());
+
+        imageBannerResourceId = wasteContainer.getImageBannerResourceId();
+        imageCategoryBanner.setImageResource(imageBannerResourceId);
 
         goToMapsActivity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +81,6 @@ public class Data_display extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onClick(View v) {
                 Uri gmmIntentUri = Uri.parse("geo:" + longitude + "," + latitude + "?q=" + longitude + "," + latitude);
-
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
 
                 // Check if Google Maps is installed
@@ -80,11 +92,12 @@ public class Data_display extends AppCompatActivity implements OnMapReadyCallbac
             }
         });
 
-        String tid = JSONFileReader.dataToSearch(this, 0, "attributes", "tid");
-        String binCategory = JSONFileReader.dataToSearch(this, 0, "attributes", "komodita_odpad_separovany");
+        //String tid = JSONFileReader.dataToSearch(this, 0, "attributes", "tid");
+        //String binCategory = JSONFileReader.dataToSearch(this, 0, "attributes", "komodita_odpad_separovany");
+        //String id = wasteContainer.getLocId();
+        //List<String> binCategory = wasteContainer.getWasteCategories();
 
-
-        switch (binCategory) {
+        /*switch (binCategory) {
             case "Plasty, nápojové kartony a hliníkové plechovky od nápojů":
                 imageCategoryIcon.setImageResource(R.drawable.plastic);
                 binCategory = "Plastic";
@@ -107,10 +120,10 @@ public class Data_display extends AppCompatActivity implements OnMapReadyCallbac
                 break;
             default:
                 binCategory = "Nothing";
-        }
+        }*/
 
         // Take datas send by InfoFragment from MapsActivity
-        Bundle extras = getIntent().getExtras();
+        /*Bundle extras = getIntent().getExtras();
         if (extras != null) {
             String addressFromActivity = extras.getString("address");
             String tagFromActivity = extras.getString("tid");
@@ -119,10 +132,11 @@ public class Data_display extends AppCompatActivity implements OnMapReadyCallbac
 
             latitude = Double.parseDouble(latitudeString);
             longitude = Double.parseDouble(longitudeString);
+        }*/
 
-            TextView textViewLocation = findViewById(R.id.textView02);
-            textViewLocation.setText(addressFromActivity);
-        }
+        TextView textViewLocation = findViewById(R.id.textView02);
+        textViewLocation.setText(wasteContainer.getAddressText());
+
 
     }
 
@@ -131,9 +145,8 @@ public class Data_display extends AppCompatActivity implements OnMapReadyCallbac
         mMap = googleMap;
         LatLng markerPosition = new LatLng(latitude, longitude); // Latitude and longitude of collect point
         Marker marker = mMap.addMarker(new MarkerOptions().position(markerPosition));
-        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(markerPosition, 19);
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(markerPosition, 15);
         mMap.animateCamera(cameraUpdate);
-        Log.d("mappp", "" + latitude + "  " + longitude);
     }
 
 }

@@ -2,12 +2,16 @@ package com.example.mobileapp;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.media.Image;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -16,7 +20,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -26,25 +29,32 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.maps.android.clustering.Cluster;
+import com.google.maps.android.clustering.ClusterManager;
+import com.google.maps.android.clustering.view.DefaultClusterRenderer;
 
 import java.io.IOException;
-import java.util.LinkedList;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback,
+        GoogleMap.OnCameraIdleListener,
+        ClusterManager.OnClusterClickListener<WasteContainer>,
+        ClusterManager.OnClusterInfoWindowClickListener<WasteContainer>,
+        ClusterManager.OnClusterItemClickListener<WasteContainer>,
+        ClusterManager.OnClusterItemInfoWindowClickListener<WasteContainer> {
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     private GoogleMap mMap;
-    private InfoFragment infoFragment = new InfoFragment();
-    private ViewPager viewPager;
-    private InfoFragmentPagerAdapter pagerAdapter;
+    private InfoFragment infoFragment;
     private List<InfoFragment> infoFragments = new ArrayList<>();
     private List<String> markerAddresses = new ArrayList<>();
     private List<Marker> markers = new ArrayList<>();
+    private ClusterManager<WasteContainer> mClusterManager;
+    List<WasteContainer> wasteContainers;
 
 
     // onCreate method executed when the app is open and only one time : used to create instances
@@ -54,11 +64,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_maps);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        pagerAdapter = new InfoFragmentPagerAdapter(getSupportFragmentManager(), infoFragments);
-
+        infoFragment = new InfoFragment();
         mapFragment.getMapAsync(this);
 
-        viewPager = findViewById(R.id.fragmentContainer);
+        wasteContainers = JSONFileReader.createWasteContainersFromJson(this);
+
         ImageButton btnCurrentLocation = findViewById(R.id.btnCurrentLocation);
         ImageButton btnZoomIn = findViewById(R.id.btnZoomIn);
         ImageButton btnZoomOut = findViewById(R.id.btnZoomOut);
@@ -83,70 +93,49 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 mMap.animateCamera(zoomOut);
             }
         });
-
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                Marker marker = markers.get(position);
-                marker.showInfoWindow();
-                zoomOnMap(marker.getPosition().latitude, marker.getPosition().longitude, 17);
-
-                Address address = getAddress(marker.getPosition().latitude, marker.getPosition().longitude);
-                String addressText = getAddressText(address);
-
-                InfoFragment newInfoFragment = infoFragments.get(position);
-                newInfoFragment.updatePostalAddress(addressText);
-            }
-
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-            }
-        });
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
         mMap = googleMap;
-        mMap.setOnMarkerClickListener(this);
-        displayMarkers();
-    }
 
-    @Override
-    public boolean onMarkerClick(Marker marker) {
-        LatLng markerPosition = marker.getPosition();
-        Address address = getAddress(markerPosition.latitude, markerPosition.longitude);
-        String addressText = getAddressText(address);
-        //String tagText = Integer.toString((int) marker.getTag());
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            mMap.setMyLocationEnabled(true);
 
-        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(markerPosition, 20);
-        mMap.animateCamera(cameraUpdate);
-        int markerIndex = markers.indexOf(marker); // Get the id of the marker
-
-
-        if (infoFragment != null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("address", addressText);
-            //bundle.putString("index", tagText);
-            bundle.putString("latitude", String.valueOf(markerPosition.latitude));
-            bundle.putString("longitude", String.valueOf(markerPosition.longitude));
-            Log.d("Data_display", "" + bundle);
-            infoFragment.setArguments(bundle);
-            zoomOnMap(markerPosition.latitude, marker.getPosition().longitude, 15);
-
-            infoFragment.updatePostalAddress(addressText);
-
-            if (markerIndex != -1) {
-                viewPager.setCurrentItem(markerIndex); // Display the info card of the selected marker
-            }
-            return false;
+            FusedLocationProviderClient fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+            fusedLocationClient.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
+                @Override
+                public void onSuccess(Location location) {
+                    if (location != null) {
+                        LatLng currentLocation = new LatLng(location.getLatitude(), location.getLongitude());
+                        float defaultZoom = 15.0f;
+                        CameraUpdate locationUpdate = CameraUpdateFactory.newLatLngZoom(currentLocation, defaultZoom);
+                        mMap.moveCamera(locationUpdate);
+                    } else {
+                        Toast.makeText(MapsActivity.this, "Cannot find location", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+        } else {
+            requestLocationPermission();
         }
-        return false;
+
+        // Cluster : Group of markers, avoid to display 1000 markers
+        mClusterManager = new ClusterManager<>(this, mMap);
+        mMap.setOnCameraIdleListener(mClusterManager);
+
+        CustomClusterRenderer renderer = new CustomClusterRenderer(this, mMap, mClusterManager);
+        mClusterManager.setRenderer(renderer);
+
+        mClusterManager.setOnClusterClickListener(this);
+        mClusterManager.setOnClusterInfoWindowClickListener(this);
+        mClusterManager.setOnClusterItemClickListener(this);
+        mClusterManager.setOnClusterItemInfoWindowClickListener(this);
+
+        displayMarkers();
+
+        updateVisibleMarkers(mMap.getProjection().getVisibleRegion().latLngBounds);
     }
 
     private void getMyLocation() {
@@ -198,32 +187,32 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     private void displayMarkers() {
+        mClusterManager.clearItems();
 
-        String featuresLength = JSONFileReader.dataToSearch(this, -1, null, null);
-
-        for (int i = 0; i < Integer.parseInt(featuresLength); i++) {
-            String x = JSONFileReader.dataToSearch(this, i, "geometry", "x");
-            String y = JSONFileReader.dataToSearch(this, i, "geometry", "y");
-            String wasteType = JSONFileReader.dataToSearch(this, i, "attributes", "komodita_odpad_separovany");
-
-
-            LatLng markerPosition = new LatLng(Double.parseDouble(y), Double.parseDouble(x)); // Latitude and longitude
-            Marker marker = mMap.addMarker(new MarkerOptions().position(markerPosition));
-
-            /* Search and give TID identification as TAG to the marker*/
-            createCollectPointsList(getAddressText(getAddress(markerPosition.latitude, markerPosition.longitude)), wasteType, marker);
-
-            /*
-            // Search and give TID identification as TAG to the marker
-            String tid = JSONFileReader.dataToSearch(this, i, "attributes", "tid");
-            marker.setTag(Integer.parseInt(tid));
-            */
-            marker.setTag(i);
-            marker.showInfoWindow();
+        for (WasteContainer wasteContainer : wasteContainers) {
+            LatLng markerPosition = new LatLng(wasteContainer.getYloc(), wasteContainer.getXloc());
+            WasteContainer offsetItem = new WasteContainer(
+                    markerPosition,
+                    wasteContainer.getLocId(),
+                    wasteContainer.getName(),
+                    wasteContainer.getWasteCategories(),
+                    wasteContainer.getLocationType(),
+                    wasteContainer.getOwner(),
+                    wasteContainer.getWasteCollectionFrequency(),
+                    wasteContainer.getWasteCollectionDays(),
+                    wasteContainer.getXloc(),
+                    wasteContainer.getYloc()
+            );
+            // Call setImageResource to set the correct image resource for the waste category
+            offsetItem.setImageResource(wasteContainer.getWasteCategories().get(0));
+            mClusterManager.addItem(offsetItem);
         }
+        mClusterManager.cluster();
     }
 
-    private Address getAddress(double latitude, double longitude) {
+
+
+    private Address getAddress(double longitude, double latitude) {
         Geocoder geocoder = new Geocoder(this);
         try {
             List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
@@ -257,24 +246,132 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         return "null";
     }
 
-    // Create ViewPager : Cards sliders of collect points
-    private void createCollectPointsList(String addressText, String wasteType, Marker marker) {
-        double latitude = marker.getPosition().latitude;
-        double longitude = marker.getPosition().longitude;
-
-        InfoFragment newInfoFragment = InfoFragment.newInstance(addressText, "", latitude, longitude, infoFragments.size());
-        infoFragments.add(newInfoFragment);
-
-        markers.add(marker);
-
-        viewPager.setAdapter(pagerAdapter);
-        viewPager.setCurrentItem(infoFragments.size() - 1);
-    }
-
     // Method to zoom on the map, with Lat, Long and zoom value
-    private void zoomOnMap(double latitude, double longitude, int zoom) {
+    private void zoomOnMap(double longitude, double latitude, int zoom) {
         LatLng currentLocation = new LatLng(latitude, longitude);
         CameraUpdate locationUpdate = CameraUpdateFactory.newLatLngZoom(currentLocation, zoom);
         mMap.animateCamera(locationUpdate);
     }
+
+    private void updateMarkersList(List<Marker> visibleMarkers) {
+        markers.clear();
+        markers.addAll(visibleMarkers);
+    }
+
+
+    private List<Marker> getVisibleMarkers(LatLngBounds bounds, float zoomLevel) {
+        List<Marker> visibleMarkers = new ArrayList<>();
+
+        int maxPointsToShow = calculateMaxPointsToShow(zoomLevel);
+        int pointsShown = 0;
+
+        for (Marker marker : markers) {
+            if (bounds.contains(marker.getPosition())) {
+                visibleMarkers.add(marker);
+                pointsShown++;
+
+                if (maxPointsToShow >= 0 && pointsShown >= maxPointsToShow) {
+                    break;
+                }
+            }
+        }
+        return visibleMarkers;
+    }
+
+
+    private int calculateMaxPointsToShow(float zoomLevel) {
+        if (zoomLevel > 15) {
+            return -1;
+        } else if (zoomLevel >= 10) {
+            return 50;
+        } else if (zoomLevel >= 8) {
+            return 30;
+        } else {
+            return 10;
+        }
+    }
+
+    @Override
+    public boolean onClusterClick(Cluster<WasteContainer> cluster) {
+        List<WasteContainer> clusterItems = new ArrayList<>(cluster.getItems());
+        LatLngBounds.Builder builder = new LatLngBounds.Builder();
+        for (WasteContainer clusterItem : clusterItems) {
+            builder.include(clusterItem.getPosition());
+        }
+        LatLngBounds clusterBounds = builder.build();
+
+        LatLng center = clusterBounds.getCenter();
+
+        float zoomLevel = mMap.getCameraPosition().zoom + 1;
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(center, zoomLevel));
+
+        return true;
+    }
+
+    @Override
+    public void onClusterInfoWindowClick(Cluster<WasteContainer> cluster) {
+    }
+
+    @Override
+    public boolean onClusterItemClick(WasteContainer wasteContainer) {
+        double latitude = wasteContainer.getXloc();
+        double longitude = wasteContainer.getYloc();
+
+        wasteContainer.setXloc(latitude);
+        wasteContainer.setYloc(longitude);
+        wasteContainer.setAddressText(getAddressText(getAddress(latitude,longitude)));
+        wasteContainer.setBinTypeName(simplifyWasteTypeName(wasteContainer));
+
+        InfoFragment infoFragment = new InfoFragment();
+        Bundle args = new Bundle();
+        args.putSerializable("wasteContainer", wasteContainer);
+        infoFragment.setArguments(args);
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragmentContainer, infoFragment)
+                .addToBackStack(null)
+                .commit();
+
+        zoomOnMap(wasteContainer.getXloc(), wasteContainer.getYloc(), 18);
+        return true;
+    }
+
+
+    @Override
+    public void onClusterItemInfoWindowClick(WasteContainer wasteContainer) {
+
+    }
+
+
+    @Override
+    public void onCameraIdle() {
+        LatLngBounds visibleBounds = mMap.getProjection().getVisibleRegion().latLngBounds;
+        updateVisibleMarkers(visibleBounds);
+    }
+
+    private void updateVisibleMarkers(LatLngBounds bounds) {
+        List<Marker> visibleMarkers = getVisibleMarkers(bounds, mMap.getCameraPosition().zoom);
+        updateMarkersList(visibleMarkers);
+    }
+
+    private String simplifyWasteTypeName(WasteContainer wasteContainer) {
+        List<String> wasteCategories = wasteContainer.getWasteCategories();
+        if (wasteCategories.contains("WASTE_WHITE_GLASS") || wasteCategories.contains("WASTE_COLORED_GLASS")) {
+            return "GLASS";
+        } else if (wasteCategories.contains("WASTE_PAPER")) {
+            return "PAPER";
+        } else if (wasteCategories.contains("WASTE_PLASTIC") || wasteCategories.contains("WASTE_METAL_FOOD_PACKAGING")) {
+            return "PLASTIC, METAL";
+        } else if (wasteCategories.contains("WASTE_ELECTRONICS")) {
+            return "ELECTRONIC WASTES";
+        } else if (wasteCategories.contains("WASTE_TEXTILE")) {
+            return "TEXTILES, TOYS, ACCESSORIES";
+        } else if (wasteCategories.contains("WASTE_BIOLOGICAL")) {
+            return "BIOLOGICAL, ORGANIC";
+        } else {
+            return "Other wastes";
+        }
+    }
 }
+
