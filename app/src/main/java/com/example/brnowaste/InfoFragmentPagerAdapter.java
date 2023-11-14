@@ -1,4 +1,4 @@
-package com.example.mobileapp;
+package com.example.brnowaste;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;

@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.mobileapp"
+    namespace = "com.example.brnowaste"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.mobileapp"
+        applicationId = "com.example.brnowaste"
         minSdk = 26
         targetSdk = 33
         versionCode = 1
