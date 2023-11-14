@@ -18,8 +18,7 @@
                 android:id="@+id/imageViewCategoryBanner"
                 android:layout_width="match_parent"
                 android:layout_height="155dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/plastic_wastes" />
+                android:scaleType="centerCrop"/>
 
             <ImageButton
                 android:id="@+id/goToMapsActivity"
@@ -41,10 +40,11 @@
                     android:id="@+id/imageViewCategoryIcon"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:src="@drawable/plastic_wastes" />
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"/>
 
                 <TextView
-                    android:id="@+id/textView1"
+                    android:id="@+id/txtWasteTypeName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
@@ -83,8 +83,7 @@
 
                 <ImageView
                     android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:src="@drawable/baseline_location_on_24"></ImageView>
+                    android:layout_height="60dp"></ImageView>
 
                 <TextView
                     android:id="@+id/textView02"
