@@ -1,4 +1,4 @@
-package com.example.brnowaste;
+package com.example.mobileapp;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -46,6 +46,8 @@ public class Data_display extends AppCompatActivity implements OnMapReadyCallbac
 
         latitude = wasteContainer.getYloc();
         longitude = wasteContainer.getXloc();
+        latitude = wasteContainer.getXloc();
+        longitude = wasteContainer.getYloc();
 
         txtWasteTypeName.setText(wasteContainer.getBinTypeName());
         imageCategoryIcon.setImageResource(wasteContainer.getImageIconResourceId());

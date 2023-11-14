@@ -1,4 +1,4 @@
-package com.example.brnowaste;
+package com.example.mobileapp;
 
 import android.content.Context;
 

@@ -1,4 +1,4 @@
-package com.example.brnowaste;
+package com.example.mobileapp;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -58,6 +58,7 @@ public class InfoFragment extends Fragment {
                 imageWasteType.setImageResource(imageIconResourceId);
             }
         }
+        Log.d("MyDebug", "" + imageIconResourceId);
 
         displayData.setOnClickListener(new View.OnClickListener() {
             @Override
