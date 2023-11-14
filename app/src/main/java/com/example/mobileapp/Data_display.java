@@ -60,8 +60,10 @@ public class Data_display extends AppCompatActivity implements OnMapReadyCallbac
 
         ImageButton goToMapsActivity = (ImageButton) findViewById(R.id.goToMapsActivity);
 
-        latitude = wasteContainer.getXloc();
-        longitude = wasteContainer.getYloc();
+        latitude = wasteContainer.getYloc();
+        longitude = wasteContainer.getXloc();
+
+        Log.d("MyDebug", "" + latitude + "   " + longitude);
 
         txtWasteTypeName.setText(wasteContainer.getBinTypeName());
         imageCategoryIcon.setImageResource(wasteContainer.getImageIconResourceId());

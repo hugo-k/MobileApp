@@ -58,7 +58,6 @@ public class InfoFragment extends Fragment {
                 imageWasteType.setImageResource(imageIconResourceId);
             }
         }
-        Log.d("MyDebug", "" + imageIconResourceId);
 
         displayData.setOnClickListener(new View.OnClickListener() {
             @Override
