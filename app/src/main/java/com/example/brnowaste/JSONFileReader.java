@@ -1,9 +1,8 @@
-package com.example.mobileapp;
+package com.example.brnowaste;
 
 import static java.lang.String.valueOf;
 
 import android.content.Context;
-import android.content.res.Resources;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
