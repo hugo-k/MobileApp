@@ -2,11 +2,13 @@ package com.example.mobileapp;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -14,6 +16,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -38,7 +42,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         ClusterManager.OnClusterClickListener<WasteContainer>,
         ClusterManager.OnClusterInfoWindowClickListener<WasteContainer>,
         ClusterManager.OnClusterItemClickListener<WasteContainer>,
-        ClusterManager.OnClusterItemInfoWindowClickListener<WasteContainer> {
+        ClusterManager.OnClusterItemInfoWindowClickListener<WasteContainer>{
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     private GoogleMap mMap;
@@ -62,6 +66,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         wasteContainers = JSONFileReader.createWasteContainersFromJson(this);
 
+        ImageButton btnFilter = findViewById(R.id.btnFilter);
         ImageButton btnCurrentLocation = findViewById(R.id.btnCurrentLocation);
         ImageButton btnZoomIn = findViewById(R.id.btnZoomIn);
         ImageButton btnZoomOut = findViewById(R.id.btnZoomOut);
@@ -84,6 +89,19 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             public void onClick(View view) {
                 CameraUpdate zoomOut = CameraUpdateFactory.zoomOut();
                 mMap.animateCamera(zoomOut);
+            }
+        });
+
+        btnFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.setCustomAnimations(R.anim.slide_in_from_left, R.anim.slide_out_to_left, R.anim.slide_in_from_left, R.anim.slide_out_to_left);
+
+                FilterFragment filterFragment = new FilterFragment();
+                transaction.replace(R.id.fragmentFilterContainer, filterFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
     }
