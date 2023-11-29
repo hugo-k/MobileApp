@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.example.mobileapp.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
@@ -144,7 +145,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         LatLng currentLocation = new LatLng(location.getLatitude(), location.getLongitude());
                         CameraUpdate locationUpdate = CameraUpdateFactory.newLatLngZoom(currentLocation, 17);
                         mMap.animateCamera(locationUpdate);
-                        zoomOnMap(location.getLatitude(), location.getLongitude(), 17);
 
                     } else {
                         Toast.makeText(MapsActivity.this, "Impossible to find location", Toast.LENGTH_LONG).show();

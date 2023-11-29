@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.mobileapp.R;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -129,7 +130,7 @@ public class Data_display extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        LatLng markerPosition = new LatLng(latitude, longitude); // Latitude and longitude of collect point
+        LatLng markerPosition = new LatLng(longitude, latitude); // Latitude and longitude of collect point
         Marker marker = mMap.addMarker(new MarkerOptions().position(markerPosition));
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(markerPosition, 15);
         mMap.animateCamera(cameraUpdate);

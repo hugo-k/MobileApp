@@ -2,6 +2,7 @@ package com.example.mobileapp;
 
 import androidx.annotation.Nullable;
 
+import com.example.mobileapp.R;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.maps.android.clustering.ClusterItem;
 

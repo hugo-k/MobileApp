@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.mobileapp.R;
+
 public class InfoFragment extends Fragment {
 
     private TextView addressTextView, wasteTypeTxtView;
