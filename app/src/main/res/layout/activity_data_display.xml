@@ -82,12 +82,12 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="60dp"
+                    android:layout_width="15dp"
                     android:layout_height="60dp"></ImageView>
 
                 <TextView
                     android:id="@+id/textView02"
-                    android:layout_width="264dp"
+                    android:layout_width="307dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="30dp"
                     android:text="#Location : .............."
@@ -120,16 +120,10 @@
                 android:weightSum="2">
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        app:srcCompat="@drawable/baseline_highlight_off_24" />
 
                     <TextView
                         android:id="@+id/textView04"
@@ -141,35 +135,6 @@
                         android:text="Beverage cans of various volumes\nCanned food packaging\nCoffee and tea cans\nDurable food packaging\nPet food packaging,\nYoghurt and cottage cheese lids\nFoil\nFood trays\nFterilised food lids\nSmall metal packaging"
                         android:textSize="18sp" />
                 </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/imageViewEnable"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        app:layout_constraintBottom_toTopOf="@+id/textView04"
-                        app:layout_constraintEnd_toEndOf="@+id/textView04"
-                        app:layout_constraintStart_toStartOf="@+id/textView04"
-                        app:layout_constraintTop_toBottomOf="@+id/textView03"
-                        app:srcCompat="@drawable/baseline_check_circle_outline_24" />
-
-                    <TextView
-                        android:id="@+id/textView05"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="60dp"
-                        android:layout_marginEnd="15dp"
-                        android:text="Beverage cans of various volumes\nCanned food packaging\nCoffee and tea cans\nDurable food packaging\nPet food packaging,\nYoghurt and cottage cheese lids\nFoil\nFood trays\nFterilised food lids\nSmall metal packaging"
-                        android:textSize="18sp" />
-                </LinearLayout>
-
 
             </LinearLayout>
         </LinearLayout>
