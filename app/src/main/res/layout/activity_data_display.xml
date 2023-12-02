@@ -97,12 +97,20 @@
                     android:id="@+id/goToMapsApp"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:background="@color/white"
                     android:foreground="?actionBarItemBackground"
                     android:rotation="180"
                     app:srcCompat="@drawable/baseline_arrow_back_ios_new_24" />
 
             </LinearLayout>
 
+            <View
+                android:id="@+id/lineView01"
+                android:layout_width="420dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#9A9A9A" />
 
             <fragment
                 android:id="@+id/map"
@@ -116,27 +124,28 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:weightSum="2">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                <View
+                    android:id="@+id/lineView02"
+                    android:layout_width="420dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="0dp"
+                    android:background="#9A9A9A" />
 
-                    <TextView
-                        android:id="@+id/textView04"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="60dp"
-                        android:layout_marginEnd="15dp"
-                        android:text="Beverage cans of various volumes\nCanned food packaging\nCoffee and tea cans\nDurable food packaging\nPet food packaging,\nYoghurt and cottage cheese lids\nFoil\nFood trays\nFterilised food lids\nSmall metal packaging"
-                        android:textSize="18sp" />
-                </LinearLayout>
+                <ImageView
+                    android:id="@+id/imageViewWastList"
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp" />
 
             </LinearLayout>
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

@@ -1,13 +1,16 @@
 package com.example.mobileapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mobileapp.R;
@@ -27,13 +30,12 @@ public class Data_display extends AppCompatActivity implements OnMapReadyCallbac
     private double latitude, longitude;
     private WasteContainer wasteContainer;
 
+    private boolean extandImage = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_display);
-
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this::onMapReady);
 
         Intent intent = getIntent();
         wasteContainer = (WasteContainer) intent.getSerializableExtra("wasteContainer");
@@ -43,21 +45,28 @@ public class Data_display extends AppCompatActivity implements OnMapReadyCallbac
         ImageButton goToMapsApp = findViewById(R.id.goToMapsApp);
         TextView txtWasteTypeName = findViewById(R.id.txtWasteTypeName);
 
-        ImageButton goToMapsActivity = (ImageButton) findViewById(R.id.goToMapsActivity);
-
-        latitude = wasteContainer.getXloc();
-        longitude = wasteContainer.getYloc();
-
+        /* CARD VIEW */
         txtWasteTypeName.setText(wasteContainer.getBinTypeName());
         imageCategoryIcon.setImageResource(wasteContainer.getImageIconResourceId());
 
         imageBannerResourceId = wasteContainer.getImageBannerResourceId();
         imageCategoryBanner.setImageResource(imageBannerResourceId);
 
+        /* STATIC MAP */
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this::onMapReady);
+        ImageButton goToMapsActivity = (ImageButton) findViewById(R.id.goToMapsActivity);
+
+        latitude = wasteContainer.getXloc();
+        longitude = wasteContainer.getYloc();
+
+        /* WASTE LIST DESCRIPTION */
+        ImageView imageWasteListe = findViewById(R.id.imageViewWastList);
+        imageWasteListe.setImageResource(wasteContainer.getWasteList());
+
         goToMapsActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO: See if it's better to use stack or finish activity
                 finish();
             }
         });
@@ -77,52 +86,8 @@ public class Data_display extends AppCompatActivity implements OnMapReadyCallbac
             }
         });
 
-        //String tid = JSONFileReader.dataToSearch(this, 0, "attributes", "tid");
-        //String binCategory = JSONFileReader.dataToSearch(this, 0, "attributes", "komodita_odpad_separovany");
-        //String id = wasteContainer.getLocId();
-        //List<String> binCategory = wasteContainer.getWasteCategories();
-
-        /*switch (binCategory) {
-            case "Plasty, nápojové kartony a hliníkové plechovky od nápojů":
-                imageCategoryIcon.setImageResource(R.drawable.plastic);
-                binCategory = "Plastic";
-                break;
-            case "Papír":
-                imageCategoryIcon.setImageResource(R.drawable.paper);
-                binCategory = "Paper";
-                break;
-            case "Biologický odpad":
-                imageCategoryIcon.setImageResource(R.drawable.organic);
-                binCategory = "Organic";
-                break;
-            case "Sklo barevné":
-                imageCategoryIcon.setImageResource(R.drawable.coloredglass);
-                binCategory = "Colored glasses";
-                break;
-            case "Sklo bílé":
-                imageCategoryIcon.setImageResource(R.drawable.whiteglass);
-                binCategory = "White glasses";
-                break;
-            default:
-                binCategory = "Nothing";
-        }*/
-
-        // Take datas send by InfoFragment from MapsActivity
-        /*Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            String addressFromActivity = extras.getString("address");
-            String tagFromActivity = extras.getString("tid");
-            String latitudeString = extras.getString("latitude");
-            String longitudeString = extras.getString("longitude");
-
-            latitude = Double.parseDouble(latitudeString);
-            longitude = Double.parseDouble(longitudeString);
-        }*/
-
         TextView textViewLocation = findViewById(R.id.textView02);
         textViewLocation.setText(wasteContainer.getAddressText());
-
-
     }
 
     @Override
@@ -133,7 +98,6 @@ public class Data_display extends AppCompatActivity implements OnMapReadyCallbac
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(markerPosition, 15);
         mMap.animateCamera(cameraUpdate);
     }
-
 }
 
 

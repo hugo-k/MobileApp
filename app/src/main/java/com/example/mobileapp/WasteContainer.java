@@ -2,7 +2,6 @@ package com.example.mobileapp;
 
 import androidx.annotation.Nullable;
 
-import com.example.mobileapp.R;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.maps.android.clustering.ClusterItem;
 
@@ -21,7 +20,9 @@ public class WasteContainer implements ClusterItem, Serializable {
     private String addressText;
     private double xloc;
     private double yloc;
-    private int imageIconResourceId, imageBannerResourceId;
+    private int imageIconResourceId;
+    private int imageBannerResourceId;
+    private int wasteList;
 
     public WasteContainer(LatLng markerPosition, String locId, String name, List<String> wasteCategories, String locationType, String owner,
                           String wasteCollectionFrequency, List<String> wasteCollectionDays, double xloc, double yloc) {
@@ -154,24 +155,34 @@ public class WasteContainer implements ClusterItem, Serializable {
         return imageBannerResourceId;
     }
 
+    public int getWasteList() { return wasteList; }
+
+
+
     public void setImageResource(String wasteCategory) {
         if (wasteCategory.equals("WASTE_WHITE_GLASS") || wasteCategory.equals("WASTE_COLORED_GLASS")) {
             imageIconResourceId = R.drawable.coloredglass;
             imageBannerResourceId = R.drawable.glass_wastes;
+            wasteList = R.drawable.glass_list;
         } else if (wasteCategory.equals("WASTE_PAPER")) {
             imageIconResourceId = R.drawable.paper;
             imageBannerResourceId = R.drawable.paper_wastes;
+            wasteList = R.drawable.paper_list;
         } else if (wasteCategory.equals("WASTE_PLASTIC") || wasteCategory.equals("WASTE_METAL_FOOD_PACKAGING")) {
             imageIconResourceId = R.drawable.plastic;
             imageBannerResourceId = R.drawable.plastic_wastes;
+            wasteList = R.drawable.plastic_list;
         } else if (wasteCategory.equals("WASTE_ELECTRONICS")) {
             imageIconResourceId = R.drawable.battery;
+            wasteList = 0;
         } else if (wasteCategory.equals("WASTE_TEXTILE")) {
             imageIconResourceId = R.drawable.clothes;
             imageBannerResourceId = R.drawable.clothes_wastes;
+            wasteList = 0;
         } else if (wasteCategory.equals("WASTE_BIOLOGICAL")) {
             imageIconResourceId = R.drawable.organic;
             imageBannerResourceId = R.drawable.organic_wastes;
+            wasteList = R.drawable.bio_waste_list;
         }
     }
 }
