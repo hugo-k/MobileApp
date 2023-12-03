@@ -1,5 +1,8 @@
 package com.example.mobileapp;
 
+import android.app.Activity;
+import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 
 import com.google.android.gms.maps.model.LatLng;
@@ -155,8 +158,9 @@ public class WasteContainer implements ClusterItem, Serializable {
         return imageBannerResourceId;
     }
 
-    public int getWasteList() { return wasteList; }
-
+    public int getWasteList() {
+        return wasteList;
+    }
 
 
     public void setImageResource(String wasteCategory) {

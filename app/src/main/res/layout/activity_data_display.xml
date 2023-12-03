@@ -129,15 +129,109 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:gravity="center"
                 android:weightSum="2">
 
                 <View
                     android:id="@+id/lineView02"
                     android:layout_width="420dp"
-                    android:layout_height="1dp"
+                    android:layout_height="10dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginBottom="0dp"
-                    android:background="#9A9A9A" />
+                    android:background="#BCBCBC" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:text="Days of collect">
+                </TextView>
+
+                <View
+                    android:id="@+id/lineView03"
+                    android:layout_width="220dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:background="#BCBCBC" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="40dp"
+                        android:text="  M  "
+                        android:textSize="20dp"
+                        android:id="@+id/MONDAY"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:text="  T  "
+                        android:textSize="20dp"
+                        android:id="@+id/TUESDAY"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:text="  W  "
+                        android:textSize="20dp"
+                        android:id="@+id/WEDNESDAY"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:text="  T  "
+                        android:textSize="20dp"
+                        android:id="@+id/THURSDAY"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:text="  F  "
+                        android:textSize="20dp"
+                        android:id="@+id/FRIDAY"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:text="  S  "
+                        android:textSize="20dp"
+                        android:id="@+id/SATURDAY"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:text="  S  "
+                        android:textSize="20dp"
+                        android:id="@+id/SUNDAY"/>
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/lineView04"
+                    android:layout_width="420dp"
+                    android:layout_height="10dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#BCBCBC" />
 
                 <ImageView
                     android:id="@+id/imageViewWastList"
