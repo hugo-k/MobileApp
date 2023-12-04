@@ -1,5 +1,6 @@
 package com.example.mobileapp;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -111,6 +112,7 @@ public class Data_display extends AppCompatActivity implements OnMapReadyCallbac
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(markerPosition, 15);
         mMap.animateCamera(cameraUpdate);
     }
+    @SuppressLint("UseCompatLoadingForDrawables")
     public void displayDaysOfCollect(List<String> days){
 
         try {
@@ -131,5 +133,3 @@ public class Data_display extends AppCompatActivity implements OnMapReadyCallbac
         }
     }
 }
-
-
