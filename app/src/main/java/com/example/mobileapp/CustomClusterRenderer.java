@@ -29,7 +29,7 @@ public class CustomClusterRenderer extends DefaultClusterRenderer<WasteContainer
 
     private float determineMarkerColor(WasteContainer wasteContainer) {
         List<String> wasteCategories = wasteContainer.getWasteCategories();
-        if (wasteCategories.contains("WASTE_WHITE_GLASS") || wasteCategories.contains("WASTE_COLORED_GLASS")) {
+        if (wasteCategories.contains("WASTE_GLASS") || wasteCategories.contains("WASTE_COLORED_GLASS")) {
             return BitmapDescriptorFactory.HUE_GREEN;
         } else if (wasteCategories.contains("WASTE_PAPER")) {
             return BitmapDescriptorFactory.HUE_BLUE;

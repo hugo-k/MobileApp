@@ -1,5 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android" >
-    <corners  android:radius="600dp"/>
-    <solid android:color="#E7E6E6"></solid>
-</shape>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Background Circle -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#FFFFFF" />
+            <corners android:radius="600dp" />
+        </shape>
+    </item>
+
+    <!-- Black Stroke -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@android:color/transparent" />
+            <stroke
+                android:width="1dp"
+                android:color="#494949" />
+            <corners android:radius="600dp" />
+        </shape>
+    </item>
+
+    <!-- Shadow -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@android:color/transparent" />
+            <corners android:radius="600dp" />
+            <padding
+                android:bottom="2dp"
+                android:left="2dp"
+                android:right="2dp"
+                android:top="2dp" />
+            <stroke
+                android:width="1dp"
+                android:color="@android:color/transparent" />
+        </shape>
+    </item>
+
+</layer-list>

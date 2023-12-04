@@ -1,62 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_corners"
     android:orientation="vertical"
-    android:background="@color/white"
     android:padding="16dp">
 
     <ImageButton
         android:id="@+id/btnClose"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/baseline_close_24"
+        android:layout_gravity="end"
+        android:background="@color/white"
         android:clickable="true"
         android:focusable="true"
-        android:layout_gravity="end"/>
+        android:src="@drawable/baseline_close_24"/>
 
-    <CheckBox
-        android:id="@+id/checkBoxPlastic"
-        android:layout_width="wrap_content"
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Plastic" />
+        android:numColumns="2"
+        android:horizontalSpacing="16dp"
+        android:verticalSpacing="16dp"
+        android:paddingTop="16dp" />
 
-    <CheckBox
-        android:id="@+id/checkBoxPaper"
-        android:layout_width="wrap_content"
+    <!-- Button Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Paper" />
+        android:orientation="horizontal"
+        android:paddingTop="16dp">
 
-    <CheckBox
-        android:id="@+id/checkBoxElectronicDevices"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Electronic Devices" />
+        <!-- Clear All Button -->
+        <Button
+            android:id="@+id/btnClearAll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="end"
+            android:text="Clear All" />
 
-    <CheckBox
-        android:id="@+id/checkBoxGlass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Glass" />
+        <!-- Apply Button -->
+        <Button
+            android:id="@+id/btnApply"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="end"
+            android:layout_marginLeft="20dp"
+            android:text="Apply" />
 
-    <CheckBox
-        android:id="@+id/checkBoxOrganic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Organic" />
+        <!-- Add All Button -->
+        <Button
+            android:id="@+id/btnAddAll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="end"
+            android:layout_marginLeft="20dp"
+            android:text="Add All" />
+    </LinearLayout>
 
-    <CheckBox
-        android:id="@+id/checkBoxClothes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Clothes" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Apply"
-        android:id="@+id/btnApply"></Button>
 
 
 </LinearLayout>

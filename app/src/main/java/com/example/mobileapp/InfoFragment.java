@@ -15,15 +15,11 @@ import androidx.fragment.app.Fragment;
 public class InfoFragment extends Fragment {
 
     private TextView addressTextView, wasteTypeTxtView;
-    private double latitude, longitude;
-    private String index;
     private Data_display dataDisplay;
     private WasteContainer wasteContainer;
     private ImageView imageWasteType;
     int imageIconResourceId;
 
-
-    private MapsActivity mapsActivity;
 
     public static InfoFragment newInstance(String address, double latitude, double longitude, String index) {
         InfoFragment fragment = new InfoFragment();
@@ -43,7 +39,6 @@ public class InfoFragment extends Fragment {
         addressTextView = view.findViewById(R.id.txtAddress);
         wasteTypeTxtView = view.findViewById(R.id.wasteTypeTxtView);
         imageWasteType = view.findViewById(R.id.imageWasteType);
-        ImageButton displayData = view.findViewById(R.id.btnMoreInfo);
         dataDisplay = new Data_display();
 
         Bundle args = getArguments();
@@ -58,9 +53,8 @@ public class InfoFragment extends Fragment {
                 imageWasteType.setImageResource(imageIconResourceId);
             }
         }
-        Log.d("MyDebug", "" + imageIconResourceId);
 
-        displayData.setOnClickListener(new View.OnClickListener() {
+        view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), Data_display.class);
