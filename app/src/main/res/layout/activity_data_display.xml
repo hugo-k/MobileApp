@@ -111,10 +111,9 @@
             <View
                 android:id="@+id/lineView01"
                 android:layout_width="420dp"
-                android:layout_height="1dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="0dp"
-                android:background="#9A9A9A" />
+                style="@style/line"/>
 
             <fragment
                 android:id="@+id/map"
@@ -135,9 +134,8 @@
                 <View
                     android:id="@+id/lineView02"
                     android:layout_width="420dp"
-                    android:layout_height="10dp"
                     android:layout_marginTop="20dp"
-                    android:background="#BCBCBC" />
+                    style="@style/line" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -151,7 +149,7 @@
                     android:id="@+id/lineView03"
                     android:layout_width="220dp"
                     android:layout_height="2dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="1dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
                     android:background="#BCBCBC" />
@@ -229,9 +227,8 @@
                 <View
                     android:id="@+id/lineView04"
                     android:layout_width="420dp"
-                    android:layout_height="10dp"
                     android:layout_marginTop="20dp"
-                    android:background="#BCBCBC" />
+                    style="@style/line" />
 
                 <ImageView
                     android:id="@+id/imageViewWastList"

@@ -6,4 +6,10 @@
         <item name="android:textSize">22sp</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
+
+    <style name="line" >
+        <item name="android:background">#A5A5A5</item>
+        <item name="android:layout_height">2dp</item>
+    </style>
+
 </resources>
