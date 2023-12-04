@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_corners"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ImageButton
+        android:id="@+id/btnClose"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="end"
+        android:background="@color/white"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/baseline_close_24"/>
+
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="2"
+        android:horizontalSpacing="16dp"
+        android:verticalSpacing="16dp"
+        android:paddingTop="16dp" />
+
+    <!-- Button Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="16dp">
+
+        <!-- Clear All Button -->
+        <Button
+            android:id="@+id/btnClearAll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="end"
+            android:text="Clear All" />
+
+        <!-- Apply Button -->
+        <Button
+            android:id="@+id/btnApply"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="end"
+            android:layout_marginLeft="20dp"
+            android:text="Apply" />
+
+        <!-- Add All Button -->
+        <Button
+            android:id="@+id/btnAddAll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="end"
+            android:layout_marginLeft="20dp"
+            android:text="Add All" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

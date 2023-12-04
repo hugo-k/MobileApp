@@ -164,7 +164,7 @@ public class WasteContainer implements ClusterItem, Serializable {
 
 
     public void setImageResource(String wasteCategory) {
-        if (wasteCategory.equals("WASTE_WHITE_GLASS") || wasteCategory.equals("WASTE_COLORED_GLASS")) {
+        if (wasteCategory.equals("WASTE_GLASS") || wasteCategory.equals("WASTE_COLORED_GLASS")) {
             imageIconResourceId = R.drawable.coloredglass;
             imageBannerResourceId = R.drawable.glass_wastes;
             wasteList = R.drawable.glass_list;
@@ -179,6 +179,7 @@ public class WasteContainer implements ClusterItem, Serializable {
         } else if (wasteCategory.equals("WASTE_ELECTRONICS")) {
             imageIconResourceId = R.drawable.battery;
             wasteList = 0;
+            imageBannerResourceId = R.drawable.electronics;
         } else if (wasteCategory.equals("WASTE_TEXTILE")) {
             imageIconResourceId = R.drawable.clothes;
             imageBannerResourceId = R.drawable.clothes_wastes;

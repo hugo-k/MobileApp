@@ -1,0 +1,33 @@
+<!-- item_filter_grid.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/rounded_border_shape">
+
+    <!-- Icon -->
+    <ImageView
+        android:id="@+id/filterIcon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/plastic" />
+
+    <!-- Text -->
+    <TextView
+        android:id="@+id/filterName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Plastic"
+        android:textSize="18sp"
+        android:gravity="center"/>
+
+    <!-- Checkbox Image -->
+    <ImageView
+        android:id="@+id/filterCheckbox"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/baseline_check_circle_outline_24"/>
+</LinearLayout>

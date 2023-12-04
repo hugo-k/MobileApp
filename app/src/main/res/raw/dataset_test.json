@@ -292,7 +292,7 @@
   }, {
     "locId" : "4d5e1b6d-0efb-413c-8d24-8d6eb9ec5e8b",
     "name" : "Klíny 55",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -412,7 +412,7 @@
   }, {
     "locId" : "672b5e5f-044b-48a1-abee-8de802c5e014",
     "name" : "Uprkova 4",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -422,7 +422,7 @@
   }, {
     "locId" : "b73e4f6a-6588-41ea-a3ed-6ba3fda8c4cd",
     "name" : "Plachty 8 - 10",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -752,7 +752,7 @@
   }, {
     "locId" : "c33017d9-d9a6-49a0-bda2-dc800777a937",
     "name" : "Viniční x Balbínova",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -792,7 +792,7 @@
   }, {
     "locId" : "fe6b504e-05ff-42d7-be30-b3d56a8e7371",
     "name" : "Vránova 134",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -1122,7 +1122,7 @@
   }, {
     "locId" : "25405e78-a7e0-4633-a49d-7ac5cabadecd",
     "name" : "Žitná 21",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -1312,7 +1312,7 @@
   }, {
     "locId" : "b9cf0439-6a00-4cb1-bbb9-d2badffa7f57",
     "name" : "Uzbecká 24",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -1322,7 +1322,7 @@
   }, {
     "locId" : "679f861e-5879-4309-8038-fa7ebf92e463",
     "name" : "Uzbecká 24",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -1392,7 +1392,7 @@
   }, {
     "locId" : "0f7f4788-7398-4056-bdee-acd61193ddb1",
     "name" : "Petrůvky x Slevačská",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -1402,7 +1402,7 @@
   }, {
     "locId" : "c607e43e-531a-4928-81d5-34c0bf5f4312",
     "name" : "Kamenačky x Skorkovského",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -1642,7 +1642,7 @@
   }, {
     "locId" : "e675dd70-2b97-46a2-abae-4c05659aefea",
     "name" : "Kamenačky x Skorkovského",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -1712,7 +1712,7 @@
   }, {
     "locId" : "99376cb8-c624-478b-b676-3851338b47d6",
     "name" : "Šmejkalova x Zeleného",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -2002,7 +2002,7 @@
   }, {
     "locId" : "2c0e4d52-44de-489c-a604-d82abd311526",
     "name" : "Bieblova 24",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -2012,7 +2012,7 @@
   }, {
     "locId" : "c6b09048-1f31-495b-8327-04b5b7fa56bc",
     "name" : "Gabriely Preissové 8",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -2022,7 +2022,7 @@
   }, {
     "locId" : "ddc26023-9f36-4f67-aee2-549475d46ee5",
     "name" : "Luční 66",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -2132,7 +2132,7 @@
   }, {
     "locId" : "ac0982f8-6803-4933-bc99-d3d945781d6f",
     "name" : "Pastrnkova x Tomáškova",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -2382,7 +2382,7 @@
   }, {
     "locId" : "103786ba-2ae4-427e-966d-0f7fb25e49ea",
     "name" : "Říčanská x Listnatá",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "EKO-KOM",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -2642,7 +2642,7 @@
   }, {
     "locId" : "518f9eea-99fd-4718-8105-451f02c0ad77",
     "name" : "Jandáskova x Cupákova",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -2652,7 +2652,7 @@
   }, {
     "locId" : "fca32574-bb59-4295-a76a-ba6bb077a8ee",
     "name" : "Jírova 15",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -2662,7 +2662,7 @@
   }, {
     "locId" : "3835ef8f-f519-4807-afc0-bb277d6ed03d",
     "name" : "Jírova 15",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -2672,7 +2672,7 @@
   }, {
     "locId" : "8225832c-18ce-4a2e-a8ca-414b72f881f7",
     "name" : "Žitná 1,3",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -2682,7 +2682,7 @@
   }, {
     "locId" : "5fec5d74-b22b-40de-9e57-3571b5ee5951",
     "name" : "Okrouhlá 5",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -3142,7 +3142,7 @@
   }, {
     "locId" : "81565259-6bbc-4702-9a3d-b6bc890b77f9",
     "name" : "Svánovského 5",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -3612,7 +3612,7 @@
   }, {
     "locId" : "b9e1d2b0-1fb2-4376-a421-2f2a636f266e",
     "name" : "Hochmanova 1",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -3642,7 +3642,7 @@
   }, {
     "locId" : "52abc533-c777-4ec4-95eb-643708623e63",
     "name" : "Lýskova 17",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -3652,7 +3652,7 @@
   }, {
     "locId" : "2fa89558-740e-4ffe-b42b-5de666cd9493",
     "name" : "Lýskova 17",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -3662,7 +3662,7 @@
   }, {
     "locId" : "321c70c8-1f32-4f29-bb94-0ec081d16bd2",
     "name" : "Horácké nám. 5",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -3692,7 +3692,7 @@
   }, {
     "locId" : "25dcaf09-13ef-426b-bd67-c0c45f49e42a",
     "name" : "bratří Křičků 5",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -3702,7 +3702,7 @@
   }, {
     "locId" : "55756569-e556-4047-8802-820208991688",
     "name" : "Jandáskova x Cupákova",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -3712,7 +3712,7 @@
   }, {
     "locId" : "30085898-3a0c-455f-9b2c-716e58baa3c8",
     "name" : "Terezy Novákové 115",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -4062,7 +4062,7 @@
   }, {
     "locId" : "860778d2-9db4-40bd-aa8f-26ff3846a839",
     "name" : "Molákova 7",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -4072,7 +4072,7 @@
   }, {
     "locId" : "c7a18a6b-f37c-4dc7-b437-63570d577d92",
     "name" : "Novoměstská 2",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -4082,7 +4082,7 @@
   }, {
     "locId" : "88e74b4a-3abe-41e2-ac91-9f1078ef17f6",
     "name" : "bratří Křičků 27",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -4282,7 +4282,7 @@
   }, {
     "locId" : "2852948e-2b3a-4b7e-8b4a-546cdc676b2f",
     "name" : "V Nové čtvrti",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -4292,7 +4292,7 @@
   }, {
     "locId" : "1eb0f7a4-16f9-4192-8802-1ddbe38afb3e",
     "name" : "V Nové čtvrti",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -4362,7 +4362,7 @@
   }, {
     "locId" : "c58f8ecb-c617-4b8f-9778-3e557acf66d5",
     "name" : "Dalimilova 102",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -4372,7 +4372,7 @@
   }, {
     "locId" : "d65569fe-21d2-4889-b6d1-a9032303b5d7",
     "name" : "Dalimilova 102",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -4482,7 +4482,7 @@
   }, {
     "locId" : "25735cbd-8595-479e-ad07-a53b74e1090b",
     "name" : "Gorkého 45",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -4552,7 +4552,7 @@
   }, {
     "locId" : "082d8637-bf3f-43d7-a581-dcfe9a9fae8b",
     "name" : "Božetěchova 85a",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -4772,7 +4772,7 @@
   }, {
     "locId" : "22dc7e58-a0de-46e3-90d3-28cd8dd6e56a",
     "name" : "Hlaváčkova 13",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -4782,7 +4782,7 @@
   }, {
     "locId" : "78ff5269-2f46-48b5-b509-472c9c9b9e0b",
     "name" : "Barvičova 98",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -4812,7 +4812,7 @@
   }, {
     "locId" : "2e170d05-da64-4662-9429-029459c29526",
     "name" : "Dalimilova 112",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -4842,7 +4842,7 @@
   }, {
     "locId" : "71688838-1328-45c0-bd40-9fc46684d615",
     "name" : "Hlaváčkova 13",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -4902,7 +4902,7 @@
   }, {
     "locId" : "7fe08787-8042-4e4f-ada5-c418112cad34",
     "name" : "Božetěchova 85a",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -5282,7 +5282,7 @@
   }, {
     "locId" : "eee90497-8be1-49d9-a6e3-120059bce683",
     "name" : "Vodova 97",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -5352,7 +5352,7 @@
   }, {
     "locId" : "ee5dede2-6db2-4145-b367-7d536d9bb08d",
     "name" : "Leknínová 11",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -5362,7 +5362,7 @@
   }, {
     "locId" : "14bf7610-fa97-4ae4-adb4-76a59b6543c8",
     "name" : "Plotní 32",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -5372,7 +5372,7 @@
   }, {
     "locId" : "1f0c5eca-9638-4f5a-9935-f17d4f192fd0",
     "name" : "Leknínová 11",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -5812,7 +5812,7 @@
   }, {
     "locId" : "185b9cfd-ffd1-4473-be5a-5e60892a6365",
     "name" : "Absolonova x Hlavní",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -5832,7 +5832,7 @@
   }, {
     "locId" : "6a57b889-6a02-43e3-a81a-ddc2c9796261",
     "name" : "Plotní 32",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -6262,7 +6262,7 @@
   }, {
     "locId" : "92884d21-4934-4509-b538-6b0143c96b81",
     "name" : "Srbská 20- podzemní kontejnery",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "městská část Brno-Královo Pole",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -6272,7 +6272,7 @@
   }, {
     "locId" : "30ba7f66-2487-43e8-a60a-43bf31530f2e",
     "name" : "Klimešova - podzemní kontejnery",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "městská část Brno-Ořešín",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -6322,7 +6322,7 @@
   }, {
     "locId" : "175b1cdf-50e5-4403-ad41-6199582b8e93",
     "name" : "Bráfova 13",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -6332,7 +6332,7 @@
   }, {
     "locId" : "33eaf216-61d9-4f3f-bad2-e36d5d144c19",
     "name" : "Škroupova 1",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -6342,7 +6342,7 @@
   }, {
     "locId" : "2d7ccb28-6286-432a-9438-8c9c1b45f72b",
     "name" : "Bráfova 13",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -6372,7 +6372,7 @@
   }, {
     "locId" : "0d1255b1-9b5e-40df-8aea-ae78113ddeee",
     "name" : "Herčíkova 3",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -6392,7 +6392,7 @@
   }, {
     "locId" : "135ae099-fb95-40b9-9ca8-75deb00a7531",
     "name" : "Herčíkova 3",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -6402,7 +6402,7 @@
   }, {
     "locId" : "4d3d4f36-7eb6-4f93-9ede-45883bcf7519",
     "name" : "Herčíkova 4",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -6562,7 +6562,7 @@
   }, {
     "locId" : "d5d9d408-0082-4918-bae5-41254e7ab216",
     "name" : "Banskobystrická 182",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -6572,7 +6572,7 @@
   }, {
     "locId" : "6cbcb381-e1ef-4cec-9054-4546ea201fe9",
     "name" : "Banskobystrická 182",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -6622,7 +6622,7 @@
   }, {
     "locId" : "7060410b-f65d-4b7d-a604-28846e2f3818",
     "name" : "Veveří 112",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -6702,7 +6702,7 @@
   }, {
     "locId" : "de206de4-593c-4a5a-8911-3aeb1d106fb6",
     "name" : "Opálkova 3",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -7112,7 +7112,7 @@
   }, {
     "locId" : "2d40ae0a-bf18-49a4-9925-fcbe54da093a",
     "name" : "Dubová 9",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -7122,7 +7122,7 @@
   }, {
     "locId" : "ab359e1f-791b-4652-9515-260d592b5f1c",
     "name" : "nám. Vojt. Matyášové 1",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -7132,7 +7132,7 @@
   }, {
     "locId" : "5107b206-68fc-4392-8aa4-6b31df8fcc0e",
     "name" : "Bělohorská 95",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -7162,7 +7162,7 @@
   }, {
     "locId" : "dca63a7d-a781-4efd-9f1d-04c2ba7eaa70",
     "name" : "Kuršova 2",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -7182,7 +7182,7 @@
   }, {
     "locId" : "04d65b5f-39e0-4d89-aff2-b537bbb55367",
     "name" : "Dubová 9",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -7252,7 +7252,7 @@
   }, {
     "locId" : "71f36466-ef17-4506-b110-1a09b3f47661",
     "name" : "Herčíkova 4",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -7422,7 +7422,7 @@
   }, {
     "locId" : "46d36631-30ce-4cc7-8b63-fb09499eaf7d",
     "name" : "Líšeňská 50-54",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -7432,7 +7432,7 @@
   }, {
     "locId" : "1621eb1a-d3dd-48aa-9ae7-cc8840c47077",
     "name" : "Líšeňská 50-54",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -7442,7 +7442,7 @@
   }, {
     "locId" : "31873434-7747-49ec-9cfe-ad30ab983678",
     "name" : "Korejská 7",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -7742,7 +7742,7 @@
   }, {
     "locId" : "fb227889-84b6-468c-be1e-ef2f9abdc776",
     "name" : "Jírovcova 5",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -7882,7 +7882,7 @@
   }, {
     "locId" : "e13d5147-ad85-4dde-a5db-dd7b49c80b5b",
     "name" : "Podveská 27-29",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -7892,7 +7892,7 @@
   }, {
     "locId" : "a3d7a704-ac36-4e68-b350-acd2cd11fcca",
     "name" : "Plovdivská 6 - MŠ",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -7902,7 +7902,7 @@
   }, {
     "locId" : "56cef4d8-293c-44a5-a962-8f0b3ea96cad",
     "name" : "Podveská 27-29",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -8262,7 +8262,7 @@
   }, {
     "locId" : "1606b0bb-f963-498b-adb6-66e7a34cad3f",
     "name" : "Haškova 5",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -8532,7 +8532,7 @@
   }, {
     "locId" : "daf7f2b9-9e77-4d4a-a38a-90e92331f4bf",
     "name" : "Labská 29",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -8572,7 +8572,7 @@
   }, {
     "locId" : "d711002d-f67a-4fcb-9339-302692722684",
     "name" : "Jabloňová x Rybízová",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -8612,7 +8612,7 @@
   }, {
     "locId" : "63cd3846-2ed7-4309-a0c7-8db39c5ce4b4",
     "name" : "Šmejkalova x Fanderlíkova",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -8632,7 +8632,7 @@
   }, {
     "locId" : "1a7e4178-d559-4c6e-ac87-6bcd10674f81",
     "name" : "Podbělová 18",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -8642,7 +8642,7 @@
   }, {
     "locId" : "3d4dd57b-3dca-4170-af05-0108e0dfafbc",
     "name" : "Krokova 52",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -8652,7 +8652,7 @@
   }, {
     "locId" : "8cc6a5e2-d134-4e6e-96e7-4dc6399a69cb",
     "name" : "Antala Staška 14",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -8662,7 +8662,7 @@
   }, {
     "locId" : "5184aa95-ab53-4937-b7b1-68d7f93c4134",
     "name" : "Stará Osada x Svatoplukova",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -8672,7 +8672,7 @@
   }, {
     "locId" : "73b558b9-6a46-4c4c-b98c-0ad7ea6e4b41",
     "name" : "Kosíkova 3",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -8702,7 +8702,7 @@
   }, {
     "locId" : "89c72705-bcc0-4efe-9863-485af8cff543",
     "name" : "Synkova 12",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -8732,7 +8732,7 @@
   }, {
     "locId" : "11c72a79-6a2c-4a37-9120-27d934d85000",
     "name" : "Kořískova 55",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -8742,7 +8742,7 @@
   }, {
     "locId" : "14339f04-eaa9-4275-9c83-9fd45d22db97",
     "name" : "Antala Staška 14",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -8752,7 +8752,7 @@
   }, {
     "locId" : "ff77b24b-a0c2-42fa-927f-a93690c31955",
     "name" : "Zikova 22",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -9112,7 +9112,7 @@
   }, {
     "locId" : "81ce3f0f-057d-4eb0-a285-ca7eae924c37",
     "name" : "Labská 29",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -9172,7 +9172,7 @@
   }, {
     "locId" : "e3456cbd-cc87-4de9-aed7-832e7f50a0fa",
     "name" : "Souhrady 8",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -9302,7 +9302,7 @@
   }, {
     "locId" : "acfb3783-9ff7-4db9-801e-ce93bf25488e",
     "name" : "Radlas x Plynárenská",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -9332,7 +9332,7 @@
   }, {
     "locId" : "f093fc9a-ae21-41cc-be09-55b9cabcb751",
     "name" : "Radlas x Plynárenská",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -9822,7 +9822,7 @@
   }, {
     "locId" : "2e40d4a6-edf8-4fca-9ce8-4edf25207941",
     "name" : "Stránského 28",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -9842,7 +9842,7 @@
   }, {
     "locId" : "9af1be7f-7cda-4ef3-8070-6ed16e615ee2",
     "name" : "Viniční x Meluzínova",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -9872,7 +9872,7 @@
   }, {
     "locId" : "423e3fd3-7ed3-4a68-8a75-79b70ab7aa20",
     "name" : "Viniční x Balbínova",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -9902,7 +9902,7 @@
   }, {
     "locId" : "de6cb575-20d8-4d11-9a8f-2368a0ecd90b",
     "name" : "Taussigova 28",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -10402,7 +10402,7 @@
   }, {
     "locId" : "04550418-1d82-4893-9c6f-99df44c94032",
     "name" : "Haškova 5",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -10462,7 +10462,7 @@
   }, {
     "locId" : "399c853c-b873-4274-b5cb-e3e1fc852178",
     "name" : "Měřičkova 18",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -10632,7 +10632,7 @@
   }, {
     "locId" : "26760dba-973a-4b28-979d-341bedf9865c",
     "name" : "Žitná 15",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -10672,7 +10672,7 @@
   }, {
     "locId" : "a1bcf566-c046-4f98-962f-22c19fe68120",
     "name" : "Terezy Novákové 115",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -10702,7 +10702,7 @@
   }, {
     "locId" : "1fc29c13-38e8-4eb4-b32b-d2e472a5e1d1",
     "name" : "Kosíkova 3",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -10782,7 +10782,7 @@
   }, {
     "locId" : "85a4c9b7-2751-4d93-a1ee-097f3babe5cc",
     "name" : "Elplova 26",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -10812,7 +10812,7 @@
   }, {
     "locId" : "6140ed98-6124-4df7-810e-5ec1b2f4db7c",
     "name" : "Hochmanova 1",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -10842,7 +10842,7 @@
   }, {
     "locId" : "fca55ad6-153b-47b3-ad5f-36f2940fa2ab",
     "name" : "Jandáskova x Cupákova",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -10872,7 +10872,7 @@
   }, {
     "locId" : "ed693ee3-3b0c-4053-bc78-309d814cfe89",
     "name" : "Atriová 11",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -10902,7 +10902,7 @@
   }, {
     "locId" : "344fc83a-b205-4613-b1bb-f31e36e1eb6b",
     "name" : "Bednaříkova 5",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -10932,7 +10932,7 @@
   }, {
     "locId" : "a0a1a921-9fc2-4659-93a9-9b04a4f569ef",
     "name" : "Ořešínská x Sousední",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -10962,7 +10962,7 @@
   }, {
     "locId" : "693575c1-d3e2-45ab-9881-5ede208d990a",
     "name" : "Puchýřova 11",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -10992,7 +10992,7 @@
   }, {
     "locId" : "1fc0dc74-757d-438f-acd8-4000230f6694",
     "name" : "Kárníkova 20",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -11182,7 +11182,7 @@
   }, {
     "locId" : "d2841ae7-096f-4c02-a8d1-53a9adba4c16",
     "name" : "Jabloňová x Rybízová",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -11262,7 +11262,7 @@
   }, {
     "locId" : "fe1afe6c-1aaa-4d7d-a214-423f74096f3f",
     "name" : "Nopova 20",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -11342,7 +11342,7 @@
   }, {
     "locId" : "7801e913-10e8-48e7-827f-a6245e81eb28",
     "name" : "Elplova 26",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -11352,7 +11352,7 @@
   }, {
     "locId" : "4a3cc157-4ef7-4658-a6cc-8d99f7b95996",
     "name" : "Točná x Malostranská",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -11372,7 +11372,7 @@
   }, {
     "locId" : "bec47c5f-a5b7-4523-b1ea-cf5ce345681d",
     "name" : "Medlánecká 2",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -11402,7 +11402,7 @@
   }, {
     "locId" : "87f831a6-5772-46a2-a233-3b5baa0e09d1",
     "name" : "Molákova 3",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -11432,7 +11432,7 @@
   }, {
     "locId" : "7fab8894-99f6-45b1-9ea6-92bb449e66e3",
     "name" : "Blanenská před ZŠ",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -11452,7 +11452,7 @@
   }, {
     "locId" : "b3563d90-b4cd-43f8-996c-a6b1261eb7fd",
     "name" : "Bzenecká 10",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "EKO-KOM",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -11462,7 +11462,7 @@
   }, {
     "locId" : "eb9c6bd7-f017-4348-81f9-f372f395b810",
     "name" : "Kosíkova 5",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -11482,7 +11482,7 @@
   }, {
     "locId" : "796b87bc-80f0-41c7-a1e7-11923f7f8b6e",
     "name" : "Blatnická 16",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "EKO-KOM",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -11492,7 +11492,7 @@
   }, {
     "locId" : "f34d9530-79ed-4821-9b8c-41765238fb4e",
     "name" : "Synkova 12",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -11512,7 +11512,7 @@
   }, {
     "locId" : "df59f239-076f-4552-a7b4-d0ceffa93596",
     "name" : "Velkopavlovická 1",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "EKO-KOM",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -11542,7 +11542,7 @@
   }, {
     "locId" : "4045756e-4345-444a-8602-9f33d0c3e09e",
     "name" : "Bzenecká 10",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "EKO-KOM",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -11572,7 +11572,7 @@
   }, {
     "locId" : "cff7d783-52b8-44d5-97cf-8b123872c3b5",
     "name" : "Prušánecká 9",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "EKO-KOM",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -11602,7 +11602,7 @@
   }, {
     "locId" : "f66f3b21-5441-47cb-b9d7-7c46328c57ce",
     "name" : "Blatnická 16",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "EKO-KOM",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -11802,7 +11802,7 @@
   }, {
     "locId" : "e4042d1c-207b-41af-a146-1d3caab30d53",
     "name" : "Bořetická 1",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "EKO-KOM",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -11832,7 +11832,7 @@
   }, {
     "locId" : "bf414d9f-f286-4a71-9b94-cb582c615495",
     "name" : "Pálavské nám. 5",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "EKO-KOM",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -11862,7 +11862,7 @@
   }, {
     "locId" : "6cb2ad04-d523-4382-9780-2c5e761ae1da",
     "name" : "Velkopavlovická 17",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "EKO-KOM",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -11892,7 +11892,7 @@
   }, {
     "locId" : "2c349416-8171-4354-bbd2-a994d0fba146",
     "name" : "Valtická 8",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "EKO-KOM",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -11922,7 +11922,7 @@
   }, {
     "locId" : "928c57be-277d-438c-b617-ef12f306b5ca",
     "name" : "Valtická 8",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "EKO-KOM",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -12032,7 +12032,7 @@
   }, {
     "locId" : "3132acbd-86e7-4a6d-9dc1-ed0a9021beff",
     "name" : "Pálavské nám. 5",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "EKO-KOM",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -12362,7 +12362,7 @@
   }, {
     "locId" : "8f71e609-9154-4bc6-8eaf-1edb5547d1be",
     "name" : "Arménská 1",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -12542,7 +12542,7 @@
   }, {
     "locId" : "1d526d23-921a-4ea1-ab46-b08b1433d758",
     "name" : "Pálavské nám. 5",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "EKO-KOM",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -12642,7 +12642,7 @@
   }, {
     "locId" : "801c5caf-5775-4ad5-9846-efb3fcdc248b",
     "name" : "Čeňka Růžičky x Lískovecká",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : null,
@@ -12652,7 +12652,7 @@
   }, {
     "locId" : "08b0b80c-a6a6-4f86-83ff-3a6b15e1a1eb",
     "name" : "Stránského 28",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -12672,7 +12672,7 @@
   }, {
     "locId" : "8b0762be-fdf6-4e20-83ad-57d5c5e7577a",
     "name" : "Arménská 1",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -12682,7 +12682,7 @@
   }, {
     "locId" : "52c83d73-ec25-434d-8af8-c829eb778884",
     "name" : "Taussigova 28",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -12702,7 +12702,7 @@
   }, {
     "locId" : "660310f9-6009-454e-88e4-261ce4a7d1e4",
     "name" : "Čeňka Růžičky x Lískovecká",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : null,
@@ -12772,7 +12772,7 @@
   }, {
     "locId" : "2a4e13dd-d4e3-46bd-8391-bac9ebe1b59e",
     "name" : "Hluboká 5",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -12782,7 +12782,7 @@
   }, {
     "locId" : "3373c191-1e01-4bbb-9304-a326e18a5ce3",
     "name" : "Táborská x Letní",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -12802,7 +12802,7 @@
   }, {
     "locId" : "6a5f6e8a-e36e-47ab-af2e-79f682ea51fb",
     "name" : "Rokycanova 35",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -12832,7 +12832,7 @@
   }, {
     "locId" : "000b3458-550e-4ebd-b2ce-3b9874c552be",
     "name" : "Boettingrova 5",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -12842,7 +12842,7 @@
   }, {
     "locId" : "e02174ae-ce11-4665-aa49-f965fd066fe7",
     "name" : "Horova 31",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -12902,7 +12902,7 @@
   }, {
     "locId" : "d860320e-0dbb-4b27-b6bd-612bc8fee720",
     "name" : "Škroupova 42",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -12912,7 +12912,7 @@
   }, {
     "locId" : "c158a731-2b5b-4579-a264-1e884a976195",
     "name" : "Táborská x Letní",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -12932,7 +12932,7 @@
   }, {
     "locId" : "9da9d460-0692-4e0b-8b0a-e6cd35d0733f",
     "name" : "Tůmova x Zábranského",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -12962,7 +12962,7 @@
   }, {
     "locId" : "b04a16fc-2182-4d27-a327-af34df5f176c",
     "name" : "Korejská x Jindřichova",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -13112,7 +13112,7 @@
   }, {
     "locId" : "445ebca9-9273-40f9-bbfa-d3703fdd9491",
     "name" : "Jílová 28",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -13142,7 +13142,7 @@
   }, {
     "locId" : "d541957b-4a7b-4229-bb0b-316ab053abcc",
     "name" : "Jílová 28",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -13532,7 +13532,7 @@
   }, {
     "locId" : "1901e76f-0466-4e77-9849-071d9eea7cff",
     "name" : "Velkopavlovická 17",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "EKO-KOM",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -13572,7 +13572,7 @@
   }, {
     "locId" : "70f2c8e1-8517-4a7a-8f68-8bbd33fd7fb0",
     "name" : "Dulánek 31",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -13902,7 +13902,7 @@
   }, {
     "locId" : "8ae287af-a633-4f0d-a154-e78d3f86b402",
     "name" : "Velkopavlovická 1",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "EKO-KOM",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -13932,7 +13932,7 @@
   }, {
     "locId" : "44b93b89-e8a9-4ee1-bdaa-f903012ccc3d",
     "name" : "Prušánecká 9",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "EKO-KOM",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -14142,7 +14142,7 @@
   }, {
     "locId" : "95b1bc6d-d017-4afb-a09e-a9199efcc94a",
     "name" : "Březinova x Tichého",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -14162,7 +14162,7 @@
   }, {
     "locId" : "ca45e4cb-c815-48b0-bdb3-df5af4077729",
     "name" : "Rozhledová 1a - Plástky",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -14172,7 +14172,7 @@
   }, {
     "locId" : "d637b9a6-b456-44e2-83ec-5d3bf473d783",
     "name" : "Mazourova 1 - MŠ",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -14182,7 +14182,7 @@
   }, {
     "locId" : "758f1992-147c-40b7-8736-a39f24fa9c5b",
     "name" : "Hoblíkova x Ryšánkova",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "EKO-KOM",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -14202,7 +14202,7 @@
   }, {
     "locId" : "216991d3-5b5e-4d19-8ad0-08776c99ad04",
     "name" : "Klímova 16",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -14252,7 +14252,7 @@
   }, {
     "locId" : "549cc4ea-c619-44f8-a6aa-b49b1840ca4d",
     "name" : "Hubrova 1",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -14282,7 +14282,7 @@
   }, {
     "locId" : "8c5dd26a-ca4d-4617-88a2-523e8b8d7e8f",
     "name" : "Ondrova x U luhu",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -14292,7 +14292,7 @@
   }, {
     "locId" : "d432ec10-0173-4662-a3f7-88e9bb753c22",
     "name" : "U pošty 3",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -14332,7 +14332,7 @@
   }, {
     "locId" : "49db792f-3542-4bae-8377-d71278901d4b",
     "name" : "Gorkého 45",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -14342,7 +14342,7 @@
   }, {
     "locId" : "0590bece-9414-4c87-a7ce-f5df088f9bdc",
     "name" : "Pálavské nám. 5",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "EKO-KOM",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -14352,7 +14352,7 @@
   }, {
     "locId" : "d88094c1-0602-4a4f-8bbd-210bb8b0e9a2",
     "name" : "Střelnice 24",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -14392,7 +14392,7 @@
   }, {
     "locId" : "f748ef7b-c13a-421e-8845-d52e9dcec4a6",
     "name" : "U pošty 3",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -14542,7 +14542,7 @@
   }, {
     "locId" : "42e5b5ee-0a07-4577-9fc9-849d087eb23d",
     "name" : "Dulánek 31",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -14632,7 +14632,7 @@
   }, {
     "locId" : "81e6ba2c-7d1d-4323-9277-e0dac35ea05f",
     "name" : "Rekreační x Ondrova",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -15302,7 +15302,7 @@
   }, {
     "locId" : "aefa4a61-1a97-4ee2-9006-8ef8af477158",
     "name" : "Hoblíkova x Ryšánkova",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "EKO-KOM",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -15362,7 +15362,7 @@
   }, {
     "locId" : "851da224-f04e-4088-982d-5b2005aa5760",
     "name" : "Letovická 2",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -15392,7 +15392,7 @@
   }, {
     "locId" : "460e05cd-599e-49f3-b40a-27db23e92e6a",
     "name" : "Voroněžská 2",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -15422,7 +15422,7 @@
   }, {
     "locId" : "ff9a0686-12e3-4bb7-a50c-1ba5d3bed3b0",
     "name" : "Došlíkova 44",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -15742,7 +15742,7 @@
   }, {
     "locId" : "27b51be5-c47d-45f3-8336-5e785709714f",
     "name" : "Ševelova 3",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -15772,7 +15772,7 @@
   }, {
     "locId" : "c6cc0791-8c3a-488d-8d45-8cc349c49fbf",
     "name" : "Ulrychova 12",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -15962,7 +15962,7 @@
   }, {
     "locId" : "9c7e565c-e6ca-4b52-825f-01732738b33a",
     "name" : "Moravanské lány E78",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "EKO-KOM",
     "wasteCollectionFrequency" : "MONTHLY",
@@ -16022,7 +16022,7 @@
   }, {
     "locId" : "3d08f603-891d-45d8-87a0-d517982e968c",
     "name" : "Moravanské lány E78",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "EKO-KOM",
     "wasteCollectionFrequency" : "MONTHLY",
@@ -16362,7 +16362,7 @@
   }, {
     "locId" : "da75b495-1377-43d8-93f1-252f8c1c3ef4",
     "name" : "Halasovo nám. - podzemní kontejnery",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "městská část Brno-sever",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -16652,7 +16652,7 @@
   }, {
     "locId" : "99433d3c-07d4-44b4-9518-3177a2af112a",
     "name" : "Nopova x Škrochova",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -16672,7 +16672,7 @@
   }, {
     "locId" : "22d2c815-3804-4122-b530-a173e709555c",
     "name" : "Karáskovo nám. 17",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -16692,7 +16692,7 @@
   }, {
     "locId" : "542e4d43-9829-47de-b009-623cf318a26b",
     "name" : "Tovačovského 15",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -16732,7 +16732,7 @@
   }, {
     "locId" : "b2e9dec8-d5c1-49d3-b25c-7f9d0ed5ccae",
     "name" : "Bayerova 10",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -17022,7 +17022,7 @@
   }, {
     "locId" : "08006ebe-d3d6-4efe-8633-4a9630b3ccff",
     "name" : "Hroznová 43",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -17042,7 +17042,7 @@
   }, {
     "locId" : "6a23e04a-d2f2-4480-b12c-fa507134a92f",
     "name" : "Klatovská 2",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -17072,7 +17072,7 @@
   }, {
     "locId" : "1ea9e4d8-90bf-4ee6-8d85-1c38b2a1239b",
     "name" : "Botanická x Kotlářská",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -17122,7 +17122,7 @@
   }, {
     "locId" : "d7ca48a3-7f4f-49b4-9686-22356e511432",
     "name" : "Medlánecká x Renčova",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "EKO-KOM",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -17162,7 +17162,7 @@
   }, {
     "locId" : "365152e7-e13a-40d3-ab83-bb5778639a2e",
     "name" : "Medlánecká x Renčova",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "EKO-KOM",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -17412,7 +17412,7 @@
   }, {
     "locId" : "a16adbb1-5190-41b4-a9c8-2613be907185",
     "name" : "Lužná 3",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_ODD",
@@ -17572,7 +17572,7 @@
   }, {
     "locId" : "3bf2ef35-0249-4973-83e7-6670ef41e602",
     "name" : "Botanická 68",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -17632,7 +17632,7 @@
   }, {
     "locId" : "6ef76757-0a49-4b12-b82a-7e33e7715e55",
     "name" : "Novoměstská 33",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -17662,7 +17662,7 @@
   }, {
     "locId" : "7e4b0414-855a-4f42-b3ac-4b46cec6164a",
     "name" : "Křivého 15",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -17952,7 +17952,7 @@
   }, {
     "locId" : "17da2ff2-e947-4933-8547-d6f8540ab719",
     "name" : "Ulrychova 12",
-    "wasteCategories" : [ "WASTE_WHITE_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -18082,7 +18082,7 @@
   }, {
     "locId" : "e0e59d65-c851-4ef4-86de-83a028254b83",
     "name" : "Mozolky 61",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -18112,7 +18112,7 @@
   }, {
     "locId" : "1c0841ce-6ada-4d8f-9725-499ea6d56713",
     "name" : "Nopova x Hrozňatova",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -18232,7 +18232,7 @@
   }, {
     "locId" : "12b692b3-1dd1-44b9-92c3-a107d16eb0b9",
     "name" : "Jundrovská 24",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -18292,7 +18292,7 @@
   }, {
     "locId" : "a45cebec-aaab-47bc-a53c-c7dc32c69e9c",
     "name" : "Šimáčkova x Obecká",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -18472,7 +18472,7 @@
   }, {
     "locId" : "55958e15-fdc0-4753-83a4-0171d7e2e9fe",
     "name" : "Olbrachtovo nám. 2",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -19322,7 +19322,7 @@
   }, {
     "locId" : "17180749-12ce-488e-9e36-66abd786897a",
     "name" : "Viniční 204",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",
@@ -19652,7 +19652,7 @@
   }, {
     "locId" : "e0b97ba6-e2f9-4e7a-9809-86a15375bef8",
     "name" : "Kunštátská 9",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "WEEKLY_OR_MORE",
@@ -19832,7 +19832,7 @@
   }, {
     "locId" : "a98e8afb-af22-4338-bad2-7e1144cf80c9",
     "name" : "Koutného 1",
-    "wasteCategories" : [ "WASTE_COLORED_GLASS" ],
+    "wasteCategories" : [ "WASTE_GLASS" ],
     "locationType" : "LOCATION_WASTE_CONTAINER",
     "owner" : "SAKO",
     "wasteCollectionFrequency" : "BIWEEKLY_EVEN",

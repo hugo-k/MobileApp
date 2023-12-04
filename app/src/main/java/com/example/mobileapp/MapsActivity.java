@@ -14,6 +14,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.mobileapp.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -39,17 +41,21 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         ClusterManager.OnClusterClickListener<WasteContainer>,
         ClusterManager.OnClusterInfoWindowClickListener<WasteContainer>,
         ClusterManager.OnClusterItemClickListener<WasteContainer>,
-        ClusterManager.OnClusterItemInfoWindowClickListener<WasteContainer> {
+        ClusterManager.OnClusterItemInfoWindowClickListener<WasteContainer>,
+        FilterListener,
+        FilterFragment.OnFilterInteractionListener {
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     private GoogleMap mMap;
     private InfoFragment infoFragment;
+    private FilterFragment filterFragment;
     private List<InfoFragment> infoFragments = new ArrayList<>();
     private List<String> markerAddresses = new ArrayList<>();
     private List<Marker> markers = new ArrayList<>();
     private ClusterManager<WasteContainer> mClusterManager;
     List<WasteContainer> wasteContainers;
 
+    private View backgroundOverlay;
 
     // onCreate method executed when the app is open and only one time : used to create instances
     @Override
@@ -60,9 +66,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         infoFragment = new InfoFragment();
         mapFragment.getMapAsync(this);
+        filterFragment = new FilterFragment();
 
         wasteContainers = JSONFileReader.createWasteContainersFromJson(this);
 
+        backgroundOverlay = findViewById(R.id.backgroundOverlay);
+        ImageButton btnFilter = findViewById(R.id.btnFilter);
         ImageButton btnCurrentLocation = findViewById(R.id.btnCurrentLocation);
         ImageButton btnZoomIn = findViewById(R.id.btnZoomIn);
         ImageButton btnZoomOut = findViewById(R.id.btnZoomOut);
@@ -87,12 +96,44 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 mMap.animateCamera(zoomOut);
             }
         });
+
+        btnFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                FragmentTransaction transactionRemoveInfoFragment = getSupportFragmentManager().beginTransaction();
+
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                InfoFragment infoFragment = (InfoFragment) fragmentManager.findFragmentById(R.id.fragmentContainer);
+
+                if (infoFragment != null) {
+                    transactionRemoveInfoFragment.remove(infoFragment);
+                    transactionRemoveInfoFragment.commit();
+                }
+
+                backgroundOverlay.setVisibility(View.VISIBLE);
+                backgroundOverlay.animate().alpha(1.0f).setDuration(300).start();
+
+                transaction.replace(R.id.fragmentFilterContainer, filterFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+        backgroundOverlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hideOverlayFilterFragment();
+            }
+        });
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
         mMap = googleMap;
+        mMap.getUiSettings().setMyLocationButtonEnabled(false);
+        mMap.getUiSettings().setZoomControlsEnabled(false);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             mMap.setMyLocationEnabled(true);
@@ -103,8 +144,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 public void onSuccess(Location location) {
                     if (location != null) {
                         LatLng currentLocation = new LatLng(location.getLatitude(), location.getLongitude());
-                        float defaultZoom = 15.0f;
-                        CameraUpdate locationUpdate = CameraUpdateFactory.newLatLngZoom(currentLocation, defaultZoom);
+                        CameraUpdate locationUpdate = CameraUpdateFactory.newLatLngZoom(currentLocation, 19);
                         mMap.moveCamera(locationUpdate);
                     } else {
                         Toast.makeText(MapsActivity.this, "Cannot find location", Toast.LENGTH_LONG).show();
@@ -204,7 +244,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
 
-
     private Address getAddress(double longitude, double latitude) {
         Geocoder geocoder = new Geocoder(this);
         try {
@@ -225,14 +264,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private String getAddressText(Address address) {
         if (address != null) {
             String addressLine = address.getAddressLine(0);
-/*
-            String city = address.getLocality();
-            String state = address.getAdminArea();
-            String country = address.getCountryName();
-            String postalCode = address.getPostalCode();
-            String knownName = address.getFeatureName();
-*/
-
             String addressText = addressLine;
             return addressText;
         }
@@ -312,7 +343,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         wasteContainer.setXloc(latitude);
         wasteContainer.setYloc(longitude);
-        wasteContainer.setAddressText(getAddressText(getAddress(latitude,longitude)));
+        wasteContainer.setAddressText(getAddressText(getAddress(latitude, longitude)));
         wasteContainer.setBinTypeName(simplifyWasteTypeName(wasteContainer));
 
         InfoFragment infoFragment = new InfoFragment();
@@ -350,7 +381,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private String simplifyWasteTypeName(WasteContainer wasteContainer) {
         List<String> wasteCategories = wasteContainer.getWasteCategories();
-        if (wasteCategories.contains("WASTE_WHITE_GLASS") || wasteCategories.contains("WASTE_COLORED_GLASS")) {
+        if (wasteCategories.contains("WASTE_GLASS")) {
             return "GLASS";
         } else if (wasteCategories.contains("WASTE_PAPER")) {
             return "PAPER";
@@ -359,12 +390,68 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         } else if (wasteCategories.contains("WASTE_ELECTRONICS")) {
             return "ELECTRONIC WASTES";
         } else if (wasteCategories.contains("WASTE_TEXTILE")) {
-            return "TEXTILES, TOYS, ACCESSORIES";
+            return "TEXTILES, ACCESSORIES";
         } else if (wasteCategories.contains("WASTE_BIOLOGICAL")) {
             return "BIOLOGICAL, ORGANIC";
         } else {
             return "Other wastes";
         }
+    }
+
+    @Override
+    public void onFiltersApplied(List<String> selectedFilters) {
+        filterWasteContainers(selectedFilters);
+    }
+
+    @Override
+    public void onFilterOverlayClosed() {
+        hideOverlayFilterFragment();
+    }
+
+    private void filterWasteContainers(List<String> selectedFilters) {
+        List<WasteContainer> filteredWasteContainers = new ArrayList<>();
+        for (WasteContainer container : wasteContainers) {
+            for (String filter : selectedFilters) {
+                if (container.getWasteCategories().contains(filter)) {
+                    filteredWasteContainers.add(container);
+                    break;
+                }
+            }
+        }
+        updateMapWithFilteredContainers(filteredWasteContainers);
+    }
+
+    private void updateMapWithFilteredContainers(List<WasteContainer> filteredWasteContainers) {
+        mClusterManager.clearItems();
+
+        for (WasteContainer wasteContainer : filteredWasteContainers) {
+            LatLng markerPosition = new LatLng(wasteContainer.getYloc(), wasteContainer.getXloc());
+            WasteContainer offsetItem = new WasteContainer(
+                    markerPosition,
+                    wasteContainer.getLocId(),
+                    wasteContainer.getName(),
+                    wasteContainer.getWasteCategories(),
+                    wasteContainer.getLocationType(),
+                    wasteContainer.getOwner(),
+                    wasteContainer.getWasteCollectionFrequency(),
+                    wasteContainer.getWasteCollectionDays(),
+                    wasteContainer.getXloc(),
+                    wasteContainer.getYloc()
+            );
+            offsetItem.setImageResource(wasteContainer.getWasteCategories().get(0));
+            mClusterManager.addItem(offsetItem);
+        }
+        mClusterManager.cluster();
+    }
+
+    private void hideOverlayFilterFragment() {
+        getSupportFragmentManager().popBackStack();
+        backgroundOverlay.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
+            @Override
+            public void run() {
+                backgroundOverlay.setVisibility(View.GONE);
+            }
+        }).start();
     }
 }
 
