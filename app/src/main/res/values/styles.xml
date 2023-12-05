@@ -26,6 +26,7 @@
     
     <style name="ButtonFilter">
         <item name="android:backgroundTint">@color/theme_strong_green</item>
+        <item name="android:elevation">8dp</item>
     </style>
     
 

@@ -54,6 +54,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private List<Marker> markers = new ArrayList<>();
     private ClusterManager<WasteContainer> mClusterManager;
     List<WasteContainer> wasteContainers;
+    ImageButton btnFilter;
 
     private View backgroundOverlay;
 
@@ -71,7 +72,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         wasteContainers = JSONFileReader.createWasteContainersFromJson(this);
 
         backgroundOverlay = findViewById(R.id.backgroundOverlay);
-        ImageButton btnFilter = findViewById(R.id.btnFilter);
+        btnFilter = findViewById(R.id.btnFilter);
         ImageButton btnCurrentLocation = findViewById(R.id.btnCurrentLocation);
         ImageButton btnZoomIn = findViewById(R.id.btnZoomIn);
         ImageButton btnZoomOut = findViewById(R.id.btnZoomOut);
@@ -113,6 +114,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                 backgroundOverlay.setVisibility(View.VISIBLE);
                 backgroundOverlay.animate().alpha(1.0f).setDuration(300).start();
+                btnFilter.setVisibility(View.GONE);
 
                 transaction.replace(R.id.fragmentFilterContainer, filterFragment);
                 transaction.addToBackStack(null);
@@ -452,6 +454,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 backgroundOverlay.setVisibility(View.GONE);
             }
         }).start();
+
+        btnFilter.setVisibility(View.VISIBLE);
     }
 }
 
