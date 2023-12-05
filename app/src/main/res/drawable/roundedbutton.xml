@@ -9,17 +9,6 @@
         </shape>
     </item>
 
-    <!-- Black Stroke -->
-    <item>
-        <shape android:shape="oval">
-            <solid android:color="@android:color/transparent" />
-            <stroke
-                android:width="1dp"
-                android:color="#494949" />
-            <corners android:radius="600dp" />
-        </shape>
-    </item>
-
     <!-- Shadow -->
     <item>
         <shape android:shape="oval">
@@ -33,6 +22,13 @@
             <stroke
                 android:width="1dp"
                 android:color="@android:color/transparent" />
+        </shape>
+    </item>
+
+    <item android:id="@android:id/background">
+        <shape android:shape="oval">
+            <solid android:color="@android:color/transparent" />
+            <corners android:radius="600dp" />
         </shape>
     </item>
 

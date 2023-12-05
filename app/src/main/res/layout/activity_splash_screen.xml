@@ -5,6 +5,7 @@
     android:id="@+id/motionLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#08A5EF"
     app:layoutDescription="@xml/activity_splash_screen_scene"
     tools:context=".SplashScreenActivity">
 
