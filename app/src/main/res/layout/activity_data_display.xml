@@ -22,12 +22,12 @@
 
             <ImageButton
                 android:id="@+id/goToMapsActivity"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/roundedbutton"
-                android:foreground="?actionBarItemBackground"
+                android:elevation="8dp"
                 app:srcCompat="@drawable/baseline_arrow_back_ios_new_24" />
 
             <LinearLayout
@@ -101,7 +101,7 @@
                     android:id="@+id/goToMapsApp"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:background="@color/white"
+                    android:background="#00000000"
                     android:foreground="?actionBarItemBackground"
                     android:rotation="180"
                     app:srcCompat="@drawable/baseline_arrow_back_ios_new_24" />
@@ -142,14 +142,23 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:layout_marginTop="20dp"
-                    android:text="Days of collect">
+                    android:text="Days of collect"
+                    style="@style/BoldText">
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:text="Garbage collector will empty this container \neach green day">
                 </TextView>
 
                 <View
                     android:id="@+id/lineView03"
                     android:layout_width="220dp"
                     android:layout_height="2dp"
-                    android:layout_marginTop="1dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
                     android:background="#BCBCBC" />

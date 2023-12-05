@@ -4,4 +4,8 @@
     <color name="green">#028302</color>
     <color name="dark_gray">#444444</color>
     <color name="white">#FFFFFF</color>
+    <color name="theme_blue">#08A5EF</color>
+    <color name="theme_light_green">#4AD548</color>
+    <color name="theme_strong_green">#149924</color>
+    <color name="theme_dark_green">#011314</color>
 </resources>

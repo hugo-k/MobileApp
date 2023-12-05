@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="BoldText" parent="TextAppearance.AppCompat">
         <item name="android:textColor">#FF000000</item>
@@ -7,6 +7,8 @@
         <item name="android:textSize">22sp</item>
         <item name="android:windowContentOverlay">@null</item>
 
-        <item name="android:windowSplashScreenBackground">@color/white</item>
+        <item name="android:windowSplashScreenBackground">#08A5EF</item>
+
     </style>
+
 </resources>
