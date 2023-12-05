@@ -36,7 +36,7 @@ public class CustomClusterRenderer extends DefaultClusterRenderer<WasteContainer
     }
 
     private BitmapDescriptor getCustomMarker(float color) {
-        int diameter = 50;
+        int diameter = 100;
         Bitmap bitmap = Bitmap.createBitmap(diameter, diameter, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
 
@@ -44,27 +44,30 @@ public class CustomClusterRenderer extends DefaultClusterRenderer<WasteContainer
         circlePaint.setColor(Color.HSVToColor(new float[]{color, 1.0f, 1.0f}));
         circlePaint.setAntiAlias(true);
 
-        canvas.drawCircle(diameter / 2, diameter / 2, diameter / 2, circlePaint);
+        canvas.drawCircle(diameter / 3, diameter / 3, diameter / 4, circlePaint);
 
         Paint borderPaint = new Paint();
         borderPaint.setColor(Color.BLACK);
         borderPaint.setStyle(Paint.Style.STROKE);
         borderPaint.setStrokeWidth(5);
 
-        canvas.drawCircle(diameter / 2, diameter / 2, diameter / 2, borderPaint);
+        canvas.drawCircle(diameter /3, diameter / 3, diameter / 4, borderPaint);
         return BitmapDescriptorFactory.fromBitmap(bitmap);
     }
 
     private float determineMarkerColor(WasteContainer wasteContainer) {
+        float HUE_GREEN_PERSO = 80.0F;
+        float HUE_RED_PERSO = 25.0F;
+        float HUE_BLUE_PERSO = 220.0F;
         List<String> wasteCategories = wasteContainer.getWasteCategories();
         if (wasteCategories.contains("WASTE_GLASS") || wasteCategories.contains("WASTE_COLORED_GLASS")) {
-            return BitmapDescriptorFactory.HUE_GREEN;
+            return HUE_GREEN_PERSO;
         } else if (wasteCategories.contains("WASTE_PAPER")) {
-            return BitmapDescriptorFactory.HUE_BLUE;
+            return HUE_BLUE_PERSO;
         } else if (wasteCategories.contains("WASTE_PLASTIC") || wasteCategories.contains("WASTE_METAL_FOOD_PACKAGING")) {
             return BitmapDescriptorFactory.HUE_YELLOW;
         } else if (wasteCategories.contains("WASTE_ELECTRONICS")) {
-            return BitmapDescriptorFactory.HUE_RED;
+            return HUE_RED_PERSO;
         } else if (wasteCategories.contains("WASTE_TEXTILE")) {
             return BitmapDescriptorFactory.HUE_ORANGE;
         } else if (wasteCategories.contains("WASTE_BIOLOGICAL")) {
