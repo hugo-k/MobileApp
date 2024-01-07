@@ -175,8 +175,8 @@ public class WasteContainer implements ClusterItem, Serializable {
             wasteList = R.drawable.plastic_list;
         } else if (wasteCategory.equals("WASTE_ELECTRONICS")) {
             imageIconResourceId = R.drawable.battery;
-            wasteList = 0;
             imageBannerResourceId = R.drawable.electronics;
+            wasteList = R.drawable.electronic_description;
         } else if (wasteCategory.equals("WASTE_TEXTILE")) {
             imageIconResourceId = R.drawable.clothes;
             imageBannerResourceId = R.drawable.clothes_wastes;
