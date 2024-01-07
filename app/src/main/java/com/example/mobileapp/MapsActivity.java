@@ -17,7 +17,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.mobileapp.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
@@ -54,10 +53,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private List<Marker> markers = new ArrayList<>();
     private ClusterManager<WasteContainer> mClusterManager;
     List<WasteContainer> wasteContainers;
+    ImageButton btnFilter;
 
     private View backgroundOverlay;
 
-    // onCreate method executed when the app is open and only one time : used to create instances
+    // onCreate method executed when the app is open and only one time: used to create instances
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +71,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         wasteContainers = JSONFileReader.createWasteContainersFromJson(this);
 
         backgroundOverlay = findViewById(R.id.backgroundOverlay);
-        ImageButton btnFilter = findViewById(R.id.btnFilter);
+        btnFilter = findViewById(R.id.btnFilter);
         ImageButton btnCurrentLocation = findViewById(R.id.btnCurrentLocation);
         ImageButton btnZoomIn = findViewById(R.id.btnZoomIn);
         ImageButton btnZoomOut = findViewById(R.id.btnZoomOut);
@@ -113,6 +113,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                 backgroundOverlay.setVisibility(View.VISIBLE);
                 backgroundOverlay.animate().alpha(1.0f).setDuration(300).start();
+                btnFilter.setVisibility(View.GONE);
 
                 transaction.replace(R.id.fragmentFilterContainer, filterFragment);
                 transaction.addToBackStack(null);
@@ -155,7 +156,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             requestLocationPermission();
         }
 
-        // Cluster : Group of markers, avoid to display 1000 markers
+        // Cluster: Group of markers, avoid displaying 1000 markers
         mClusterManager = new ClusterManager<>(this, mMap);
         mMap.setOnCameraIdleListener(mClusterManager);
 
@@ -198,7 +199,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
             Toast.makeText(this, "Location permission is required for this app.", Toast.LENGTH_LONG).show();
         }
-        // Ask for localisation permission
+        // Ask for localization permission
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
     }
 
@@ -243,7 +244,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mClusterManager.cluster();
     }
 
-
     private Address getAddress(double longitude, double latitude) {
         Geocoder geocoder = new Geocoder(this);
         try {
@@ -282,7 +282,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         markers.addAll(visibleMarkers);
     }
 
-
     private List<Marker> getVisibleMarkers(LatLngBounds bounds, float zoomLevel) {
         List<Marker> visibleMarkers = new ArrayList<>();
 
@@ -301,7 +300,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
         return visibleMarkers;
     }
-
 
     private int calculateMaxPointsToShow(float zoomLevel) {
         if (zoomLevel > 15) {
@@ -361,12 +359,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         return true;
     }
 
-
     @Override
     public void onClusterItemInfoWindowClick(WasteContainer wasteContainer) {
 
     }
-
 
     @Override
     public void onCameraIdle() {
@@ -452,6 +448,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 backgroundOverlay.setVisibility(View.GONE);
             }
         }).start();
+
+        btnFilter.setVisibility(View.VISIBLE);
     }
 }
+
 

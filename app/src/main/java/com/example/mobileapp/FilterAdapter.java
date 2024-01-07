@@ -8,9 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.mobileapp.FilterItem;
-import com.example.mobileapp.R;
-
 import java.util.List;
 
 public class FilterAdapter extends BaseAdapter {
@@ -43,10 +40,14 @@ public class FilterAdapter extends BaseAdapter {
         ViewHolder viewHolder;
 
         if (convertView == null) {
+            // Inflate the layout for each list item
             convertView = LayoutInflater.from(context).inflate(R.layout.item_filter_grid, parent, false);
+
+            // Create a ViewHolder and associate it with the view
             viewHolder = new ViewHolder(convertView);
             convertView.setTag(viewHolder);
         } else {
+            // View is being recycled; retrieve the ViewHolder from tag
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
@@ -67,19 +68,24 @@ public class FilterAdapter extends BaseAdapter {
 
         // Set click listener for the whole item
         convertView.setOnClickListener(v -> {
+            // Toggle the selection state when clicked
             filterItem.setSelected(!filterItem.isSelected());
+
+            // Notify the adapter that the dataset has changed
             notifyDataSetChanged();
         });
 
         return convertView;
     }
 
+    // ViewHolder pattern to improve ListView performance
     private static class ViewHolder {
         ImageView iconImageView;
         TextView filterNameTextView;
         ImageView checkboxImageView;
 
         ViewHolder(View view) {
+            // Initialize the views within the ViewHolder
             iconImageView = view.findViewById(R.id.filterIcon);
             filterNameTextView = view.findViewById(R.id.filterName);
             checkboxImageView = view.findViewById(R.id.filterCheckbox);

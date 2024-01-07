@@ -1,22 +1,18 @@
 package com.example.mobileapp;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mobileapp.R;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -26,11 +22,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
-import java.lang.String;
-import java.util.Objects;
 
 public class Data_display extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -40,7 +32,7 @@ public class Data_display extends AppCompatActivity implements OnMapReadyCallbac
     private WasteContainer wasteContainer;
     private List<String> collectDays;
 
-    private boolean extandImage = false;
+    private boolean extendImage = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +88,9 @@ public class Data_display extends AppCompatActivity implements OnMapReadyCallbac
 
                 if (mapIntent.resolveActivity(getPackageManager()) != null) {
                     startActivity(mapIntent);
+                } else {
+                    // Google Maps is not available, show an error message
+                    Toast.makeText(Data_display.this, "Google Maps is not available", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -112,24 +107,29 @@ public class Data_display extends AppCompatActivity implements OnMapReadyCallbac
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(markerPosition, 15);
         mMap.animateCamera(cameraUpdate);
     }
+
     @SuppressLint("UseCompatLoadingForDrawables")
-    public void displayDaysOfCollect(List<String> days){
-
+    public void displayDaysOfCollect(List<String> days) {
         try {
-            for (String i : days) {
+            TextView noCollectDaysText = findViewById(R.id.textViewInfoCollectionDays);
+            if (days == null || days.isEmpty()) {
+                // No collection day mentioned
+                noCollectDaysText.setText("Unknown collection days");
+            } else {
+                noCollectDaysText.setText("Garbage collector will empty this container \n each green day");
+                for (String i : days) {
+                    if (i == null) {
+                        break;
+                    }
+                    String textViewId = i;
+                    int resId = getResources().getIdentifier(textViewId, "id", getPackageName());
 
-                if (i == null) {
-                    break;
+                    TextView dayTxtView = findViewById(resId);
+                    dayTxtView.setBackground(getResources().getDrawable(R.drawable.rounded_txtbackground));
                 }
-                String textViewId = i;
-                int resId = getResources().getIdentifier(textViewId, "id", getPackageName());
-
-                TextView dayTxtView = findViewById(resId);
-                dayTxtView.setBackground(getResources().getDrawable(R.drawable.rounded_txtbackground));
             }
-        }catch (Exception e) {
-            // Capturer l'exception et l'afficher dans les logs avec un tag
-            Log.e("day", "Erreur : ", e);
+        } catch (Exception e) {
+            Log.e("day", "Error: ", e);
         }
     }
 }

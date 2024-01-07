@@ -83,7 +83,7 @@
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="700dp" >
+        android:layout_alignParentBottom="true">
 
     </FrameLayout>
 

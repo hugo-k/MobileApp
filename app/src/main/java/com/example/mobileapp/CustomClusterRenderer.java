@@ -2,12 +2,9 @@ package com.example.mobileapp;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-
-import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.BitmapDescriptor;
@@ -15,18 +12,19 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.maps.android.clustering.ClusterManager;
 import com.google.maps.android.clustering.view.DefaultClusterRenderer;
-import com.google.maps.android.ui.IconGenerator;
 
 import java.util.List;
 
 public class CustomClusterRenderer extends DefaultClusterRenderer<WasteContainer> {
     private final Context context;
 
+    // Constructor for CustomClusterRenderer
     public CustomClusterRenderer(Context context, GoogleMap map, ClusterManager<WasteContainer> clusterManager) {
         super(context, map, clusterManager);
         this.context = context;
     }
 
+    // Override to customize the rendering of individual cluster items
     @Override
     protected void onBeforeClusterItemRendered(WasteContainer item, MarkerOptions markerOptions) {
         float markerColor = determineMarkerColor(item);
@@ -35,6 +33,7 @@ public class CustomClusterRenderer extends DefaultClusterRenderer<WasteContainer
         super.onBeforeClusterItemRendered(item, markerOptions);
     }
 
+    // Create a custom marker icon based on the color
     private BitmapDescriptor getCustomMarker(float color) {
         int diameter = 100;
         Bitmap bitmap = Bitmap.createBitmap(diameter, diameter, Bitmap.Config.ARGB_8888);
@@ -55,11 +54,14 @@ public class CustomClusterRenderer extends DefaultClusterRenderer<WasteContainer
         return BitmapDescriptorFactory.fromBitmap(bitmap);
     }
 
+    // Determine the marker color based on waste categories
     private float determineMarkerColor(WasteContainer wasteContainer) {
         float HUE_GREEN_PERSO = 80.0F;
         float HUE_RED_PERSO = 25.0F;
         float HUE_BLUE_PERSO = 220.0F;
         List<String> wasteCategories = wasteContainer.getWasteCategories();
+
+        // Check waste categories and assign color accordingly
         if (wasteCategories.contains("WASTE_GLASS") || wasteCategories.contains("WASTE_COLORED_GLASS")) {
             return HUE_GREEN_PERSO;
         } else if (wasteCategories.contains("WASTE_PAPER")) {
@@ -71,7 +73,7 @@ public class CustomClusterRenderer extends DefaultClusterRenderer<WasteContainer
         } else if (wasteCategories.contains("WASTE_TEXTILE")) {
             return BitmapDescriptorFactory.HUE_ORANGE;
         } else if (wasteCategories.contains("WASTE_BIOLOGICAL")) {
-            return 45.0f; //Brown
+            return 45.0f; // Brown
         } else {
             return BitmapDescriptorFactory.HUE_MAGENTA;
         }

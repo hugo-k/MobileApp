@@ -1,8 +1,5 @@
 package com.example.mobileapp;
 
-import android.app.Activity;
-import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 
 import com.google.android.gms.maps.model.LatLng;
